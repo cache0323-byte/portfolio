@@ -1,0 +1,524 @@
+@charset "utf-8";
+
+/* =====================
+header
+====================== */
+.header::before {
+    content: "";
+    position: absolute; 
+    left: 0%;
+    top: 0;
+    height: 0%;
+    width: 0px;
+    opacity: 0; 
+    z-index: -1; 
+}
+
+.header::after {
+    content: "";
+    position: absolute; 
+    right: 0%;
+    top: 0;
+    height: 0%;
+    width: 0px;
+    opacity: 0;
+    z-index: -1; 
+}
+
+
+
+/* ==================================
+fv
+=================================== */
+.profile_fv{
+    border-top: 1px solid var(--primary-black);
+    position: relative; 
+    padding-bottom: 40px;
+}
+
+.profile_title{
+    font-family: 'DM Serif Display';
+    font-size: clamp(2.8rem, 7.4vw, 10.4rem);
+    line-height: 1;
+    margin: 40px auto 0 5.3vw;
+}
+
+.profile_imgWrap_small{
+    width: 19.4vw;
+    aspect-ratio: 73/104;
+    object-fit: cover;
+    overflow: hidden;
+    margin: -32px 0 0 auto;
+}
+
+.profile_imgWrap_big{
+    width: 64.8vw;
+    aspect-ratio: 243/137;
+    object-fit: cover;
+    overflow: hidden;
+    margin: 0 auto 0 0;
+}
+
+/*------------------------
+fv/pc
+------------------------ */
+@media screen and (min-width:769px) {
+    .profile_fv{
+        padding-bottom: 100px;
+    }
+
+    .profile_title{
+        font-size: clamp(2.8rem, 7.6vw, 10.4rem);
+        margin: 112px auto 0 5.5vw;
+    }
+
+    .profile_imgWrap_small{
+        width: 19.6vw;
+        aspect-ratio: 269/378;
+        margin: -118px 0 0 auto;
+    }
+
+    .profile_imgWrap_big{
+        width: 65vw;
+        aspect-ratio: 884/499;
+        /* margin: 0 auto 0 0; */
+    }
+}
+
+
+/* ==========================
+myself
+============================ */
+.myself{
+    padding-top: 50px;
+    position: relative;
+    overflow: hidden;
+    --final-height: 527px; 
+    padding-bottom: 40px;
+}
+
+.myself::before {
+    content: "";
+    position: absolute;
+    left: 5.8%; 
+    top: 50px; 
+    width: 1px;
+    height: 0; 
+    background-color: var(--primary-black);
+    z-index: 1;
+    transition: height 5s ease-out; 
+}
+
+
+#myself .section_title::after {
+  content: "";
+  position: absolute;
+  bottom: 50%; /* 文字の中央ラインに合わせる */
+  left: 100%;  /* タイトルの右端からスタート */
+  transform: translateY(50%);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  margin-left: 0rem;
+}
+
+.myself_container{
+    display: block;
+    margin: 20px auto;
+    padding: 0 11.73vw;
+}
+
+.myself_img{
+    width: 52vw;
+    aspect-ratio: 195/130;
+    outline: 1px solid var(--primary-black);
+    outline-offset: 4px;
+}
+
+.myself_nameWrap::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-black);
+    margin: 51px auto 27px 0 ;
+    /* ここの数字確認 */
+}
+
+
+.myself_nameEn{
+    font-family: 'DM Serif Display';
+    font-size: 1.6rem;
+    color: var(--primary-green);
+    margin-top: 38px;
+}
+
+.myself_nameJa{
+    font-size: clamp(2.4rem, 6.4vw, 3.6rem );
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.myself_text{
+    margin: 30px auto 30px 0;
+}
+
+.myself_text::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-black);
+    margin: 30px auto 0;
+}
+
+
+/*------------------------
+myself/pc
+------------------------ */
+@media screen and (min-width:1024px) {
+    .myself{
+        padding-top: 84px;
+        --final-height: 560px; 
+        padding-bottom: 100px;
+    }
+
+    .myself::before {
+        left: 6.1%; 
+        top: 85px; 
+    }
+
+    .myself_container{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 7.05vw;
+        margin: 58px 7.2vw 0 11.6vw;
+        padding: 0;
+    }
+
+    .myself_img{
+        width: 41.25vw;
+        aspect-ratio: 561/374;
+        flex-shrink: 0;
+    }
+    /* ここの画像が変形してしまう */
+
+    .myself_nameWrap::after{
+        margin: 51px auto 27px 0 ;
+        /* ここの数字確認 */
+    }
+
+    .myself_nameEn{
+        margin-top: 38px;
+    }
+
+    .myself_nameJa{
+        font-size: clamp(2.4rem, 2.6vw, 3.6rem );
+        margin-top: 10px;
+    }
+
+    .myself_text{
+        margin: 20px auto 20px 0;
+    }
+
+    .myself_text::after{
+        margin: 20px auto 0;
+    }
+}
+
+
+/* ===================
+strength
+===================== */
+.strength{
+    padding-top: 50px;
+    position: relative;
+    overflow: hidden;
+    --final-height: 560px; /* CSS変数として定義 */
+    padding-bottom: 40px;
+}
+
+.strength::before {
+    content: "";
+    position: absolute;
+    left: 5.8%; 
+    top: 134px; 
+    width: 1px;
+    height: 0; 
+    background-color: var(--primary-black);
+    z-index: 1;
+    transition: height 5s ease-out; 
+}
+
+.strength_container{
+    margin:38px auto 0;
+    padding: 0 10.1vw 0 9.8vw;
+}
+
+.strength_inner{
+    margin: 47px 13.3% 0;
+}
+
+.strength_wrap{
+    margin-top: 61px;
+}
+
+.strength_leadWrap{
+    display: grid;
+    align-items: center;
+    width: 48.5vw;
+    /* 必要に応じて justify-content も追加 */
+}
+
+.strength_lead,
+.strength_number {
+    grid-area: 1 / 1 / 2 / 2; 
+}
+
+.strength_lead{
+    font-size: clamp(2.2rem, 5.8vw, 3.2rem);
+    font-weight: 700;
+    z-index: 1;
+}
+
+.strength_number{
+    font-family: 'DM Serif Display';
+    font-size: clamp(11.6rem, 30.9vw, 21.6rem);
+    line-height: 1;
+    opacity: 0.1;
+    z-index: 0;
+    justify-self: end; 
+    align-self: center;
+}
+
+.strength_text{
+    margin-top: 26px;
+}
+
+/*------------------------
+strength/pc
+------------------------ */
+@media screen and (min-width:769px) {
+    .strength{
+        padding-top: 84px;
+        --final-height: 500px; /* CSS変数として定義 */
+        padding-bottom: 184px;
+    }
+
+    .strength::before {
+        left: 6.1%; 
+        /* top: 196px;  */
+        /* ここの数字の出し方 */
+    }
+
+    .strength_container{
+        padding: 0 9.6vw 0 13.8vw;
+    }
+
+    .strength_inner{
+        margin: 47px 13.3% 0;
+    }
+    /* これどこにかかってる？ */
+
+    .strength_wrap{
+        margin-top: 4.48%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10vw;
+        align-items: center;
+    }
+
+    .strength_leadWrap{
+        width: 21.7vw;
+        /* 必要に応じて justify-content も追加 */
+    }
+
+    .strength_lead{
+        font-size: clamp(2.2rem, 2.3vw, 3.2rem);
+    }
+
+    .strength_number{
+        font-size: clamp(11.6rem, 15.8vw, 21.6rem);
+    }
+
+    .strength_text{
+        margin-top: 0;
+    }
+}
+
+
+/* ===================
+career
+===================== */
+.career{
+    padding: 50px 5.8vw 40px;
+    position: relative;
+    overflow: hidden;
+    --final-height: 560px;
+}
+
+.career_container{
+    margin-top: 88px;
+}
+
+#career .section_title{
+    margin-left: 0;
+}
+
+.career_timeline{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+
+.career_date{
+    width: 55px;
+    flex-shrink: 0;
+    margin: 45px 32px 0 0;
+}
+
+.career_textwrap{
+    flex-grow: 1;
+    border-left: 1px solid var(--primary-black);
+    padding-left: 16px;
+}
+
+
+.career_inner {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.career_inner::before {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: #5f8b58;
+    border-radius: 50%; 
+    z-index: 2;
+    left: calc(86px + 1px - 5.5px); /* 86px(日付幅) + 1px(縦線の幅) - 5.5px(丸の幅の半分) */
+    top: 51px; 
+}
+
+.career_lead{
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 45px;
+}
+
+.career_text{
+    margin: 12px auto 15px;
+}
+
+/*------------------------
+career/pc
+------------------------ */
+@media screen and (min-width:769px) {
+    .career{
+        padding-top: 84px;
+        --final-height: 500px; /* CSS変数として定義 */
+        padding-bottom: 184px;
+    }
+
+    .career_container{
+        margin: 17.4% 11.7vw 0 11.1vw;
+    }
+
+      .career_textwrap{
+        padding-left: 10.5%;
+        max-width: 1000px;
+        /* max-width: 56.2vw; */
+        /* 文字数が多くなりすぎる。どうしたらいいのか？ */
+    }
+
+    .career_lead{
+        font-size: 2rem;
+    }
+
+    .career_text{
+        margin: 12px auto 48px;
+    } 
+}
+
+/* ===================
+interests
+===================== */
+.interests{
+    padding-top: 50px;
+    position: relative;
+    overflow: hidden;
+    --final-height: 345px; 
+    padding-bottom: 40px;
+}
+
+.interests::before{
+    content: "";
+    position: absolute;
+    left: 5.8%;
+    top: 134px;
+    width: 1px;
+    height: 0px;
+    background-color: var(--primary-black);
+    z-index: 1;
+    transition: height 5s ease-out;
+}
+
+.interests_container{
+    margin: 75px 12.6vw 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.interests_img{
+    width: 32vw;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/*------------------------
+intereste/pc
+------------------------ */
+@media screen and (min-width:769px) {
+    .interests{
+        padding-top: 84px;
+        --final-height: 500px; /* CSS変数として定義 */
+        padding-bottom: 184px;
+    }
+
+    .interests::before{
+        left: 6.1%;
+        top: 85px;
+        /* ここの数字の決め方。
+        また横線はどうするのか？ */
+    }
+
+    .interests_container{
+        margin: 107px 8.4vw 0 12.86vw;
+    }
+
+    .interests_img{
+        width: 24.2vw;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+

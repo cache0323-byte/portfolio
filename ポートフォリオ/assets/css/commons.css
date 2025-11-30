@@ -1,0 +1,279 @@
+@charset "utf-8";
+:root{
+    --primary-black:#2b1f1a;
+    --primary-green:#394b33;
+    --primary-beige:#fbf7f0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 
+        'inter',
+        'DM Serif DIsplay';
+    font-style: normal;
+    color: var(--primary-black, #2b1f1a);
+    font-size: clamp(1.4rem, 3.7vw,1.8rem);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    background-color: var(--primary-beige, #fbf7f0);
+}
+
+.section_title{
+    font-family: 'DM Serif DIsplay';
+    color: var(--primary-green, #394b33);
+    font-size: clamp(2rem, 5.3vw, 5.8rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    margin-left:5.8%; 
+    position: relative;
+    display: inline-block;
+}
+
+.section_title::after {
+  content: "";
+  position: absolute;
+  bottom: 50%; /* 文字の中央ラインに合わせる */
+  left: 100%;  /* タイトルの右端からスタート */
+  transform: translateY(50%);
+  width: 60vw;
+  height: 1px;
+  background-color: var(--primary-black);
+  margin-left: 2rem;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* アニメーション開始時の状態を定義 (共通クラス) */
+.animated-line.is-drawn::before,
+.animated-line.is-drawn::after {
+    /* JavaScriptで is-drawn が付くと、この高さになる */
+    height: var(--final-height, 100%); 
+}
+
+@media screen and(min-width:769px) {
+    .section_title{
+        font-size: clamp(2rem, 4.2vw, 5.8rem);
+        margin-left:6.1%; 
+        width: 64vw;
+        margin-left: 4rem;
+    }
+}
+
+
+/* =====================
+header
+======================== */
+.header{
+    padding: 1.6% 19.7%;
+    position: relative;
+}
+
+.header::before {
+    content: "";
+    position: absolute; 
+    left: 5.8%;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: var(--primary-black); 
+    z-index: 1; 
+}
+
+.header::after {
+    content: "";
+    position: absolute; 
+    right: 5.8%;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: var(--primary-black); 
+    z-index: 1; 
+}
+
+.header_nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_list{
+    font-size: clamp(1.2rem,3.2vw,1.6rem);
+    font-weight: 700;
+}
+
+.header_logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header_logo_lastname{
+    font-family: 'DM Serif Display';
+    font-size: clamp(1.4rem,3.7vw,2.2rem);   
+    line-height: 1;
+}
+
+.header_logo_familyname{
+    font-family: 'DM Serif Display';
+    font-size: clamp(2.2rem,5.8vw,3.2rem);   
+    line-height: 1;
+}
+
+.header_logo_portfolio{
+    font-family: 'Dancing Script';
+    font-size: clamp(1.2rem,3.2vw,1.4rem);  
+    font-weight: 700; 
+}
+
+/* ----------------------
+header/PC
+-----------------------*/
+@media screen and (min-width:769px) {
+    .header{
+    padding: 1.6% 36%;
+    }
+
+    .header::before {
+        left: 6.1%;
+        
+    }
+
+    .header::after {
+        right: 6.1%;
+    }
+
+
+    .nav_list{
+        font-size: clamp(1.2rem,1.1vw,1.6rem);
+    }
+
+    .header_logo_familyname{
+        font-size: clamp(2.2rem,2.3vw,3.2rem);   
+    }
+
+    .header_logo_portfolio{
+        font-size: clamp(1.2rem,1.02vw,1.4rem);   
+    }
+}
+
+
+/* ===========================
+footer
+============================= */
+.footer{
+    background-color: var(--primary-green);
+    color: var(--primary-beige);
+    padding: 65px 10vw;
+}
+
+.footer_container{
+    margin-bottom: 32px;
+}
+
+.footer_logo{
+    font-family: 'DM Serif Display';
+    font-size: clamp(2.2rem,5.8vw,4.8rem);   
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer_logo_portfolio{
+    font-family: 'Dancing Script';
+    font-size: clamp(1.2rem,3.2vw,2.1rem);
+    line-height: 1.5;  
+}
+
+.footer_nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.footer_nav_list{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    border-bottom: solid 1px var(--primary-beige);
+}
+
+.footer_nav_item{
+    font-size:1.2rem
+}
+
+.mail{
+    font-family: 'DM Serif Display';
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.copy{
+    font-size: 1.2rem;
+    display: block;
+    /* width: 300px; */
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+/*------------------------
+footer/pc
+------------------------ */
+@media screen and (min-width:769px) {
+    .footer{
+        padding: 46px 6.1vw;
+    }
+
+    .footer_container{
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer_logo{
+        font-size: clamp(2.2rem, 3.5vw, 4.8rem);   
+        text-align: start;
+    }
+
+    .footer_logo_portfolio{
+        font-size: clamp(1.2rem, 1.5vw, 2.1rem);
+    }
+
+    .footer_nav{
+        gap: 40px;
+        margin-top: 0;
+    }
+
+    .footer_nav_list{
+        width: 400px;
+    }
+
+    .footer_nav_item{
+        font-size:1.6rem
+    }
+
+    .mail{
+        font-size: 3.2rem;
+    }
+
+    .copy{
+        font-size: 1.4rem;
+        margin: 0 ; 
+        text-align: start; 
+    }
+}
+
+
+
+
+

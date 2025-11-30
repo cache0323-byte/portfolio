@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+.patissier_wrap{
+    background:#f2f2f2;
+    padding: 20px 0 34px;
+    margin-top: 36px;
+}
+
+.patissier_img{
+    width: calc(300 / 375 * 100vw);
+    height: auto;
+    margin: 0 8.8%;
+}
+
+.patissier_name{
+    color: #3E3A39;
+}
+
+.patissier_name span{
+    font-family: Pacifico;
+    font-size: 1.8rem;
+    letter-spacing: 0.36px;
+    opacity: 0.3;
+    color: #3E3A39;
+}
+
+.patissier_history,
+.patissier_job{
+    margin: 40px auto 0 8.8%;
+}
+
+.patissier_text{
+    width: calc(300 / 375 * 100vw);
+    margin: 16px 8.8% 0;
+}
+
+dl{
+    margin: 16px 8.8% 0;
+}
+
+dt,
+dd{
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75; 
+    letter-spacing: 1.28px;
+}
+
+dt{
+    margin-top: 28px;
+}
+
+.btn--patissier{
+    margin: 82px auto 48px;
+}
+
+
+@media screen and (min-width:769px) {
+
+.patissier_wrap{
+    width: calc(1120 / 1320 * 100vw);
+    height: auto;
+    background-color:#f2f2f2 ;
+    margin: 52px auto;
+    padding: 40px 80px;
+}
+
+.patissier_img{
+    width: calc(320 / 1360 * 100vw);
+    height: auto;
+    margin: 50px auto;
+}
+
+.patissier_name span{
+    font-family: Pacifico;
+    font-size: 1.8rem;
+    letter-spacing: 0.36px;
+    opacity: 0.3;
+}
+
+.patissier_history,
+.patissier_job{
+    width: calc(800/ 1360 * 100vw);
+    margin: 40px auto 16px;
+}
+
+.patissier_text{
+    width: calc(800/ 1360 * 100vw);
+    margin: 0 auto ;
+}
+
+dl{
+    width: calc(800/ 1360 * 100vw);
+    margin: 16px auto 0;
+}
+
+dt,
+dd{
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75; 
+    letter-spacing: 1.28px;
+}
+
+dt{
+    margin-top: 28px;
+}
+
+
+}

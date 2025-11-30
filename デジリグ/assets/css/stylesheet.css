@@ -1,0 +1,1435 @@
+@charset "utf-8";
+/* =====================
+common
+====================== */
+
+:root{
+    --primary-white:#FFFFFF;
+    --primary-black:#333333;
+    --primary-orange:#ff8763;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: Montserrat;
+    font-size: clamp(1.4rem, 3.7vw, 1.6rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.4rem, 6.4vw, 3.8rem);
+    color: var(--primary-black, #333333);
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================
+header
+============================== */
+.header_container{
+    padding: 10px 4.2vw;
+    background-color: var(--primary-white);
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.nav_list{
+    display: none;
+}
+
+.header_logo img {
+    /* width: auto; */
+    max-width: 50vw;
+    height: 40px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* ここのロゴが見えない理由 */
+
+.header_menu{
+    width: 4.8vw;
+    height: 3.2vw;
+    flex-shrink: 0;
+    position: fixed;
+    top: -4px;
+    right: 16px;
+}
+
+.header_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1024px) {
+    .header_container{
+        padding: 36px 2.5%;
+        height: 126px;
+    }
+
+    .header_logo img{
+        width: 218px;
+        height: auto;
+        text-align: center;
+    }
+
+    .header_menu{
+        display: none;
+    }
+
+    .nav_list{
+        display: block;
+    }
+
+    .nav_container ul{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 3.6vw;
+        align-items: center;
+    }
+
+    .nav_list a{
+        font-weight: 900;
+    }
+
+    .header_btn{
+        display: flex;
+        width: 240px;
+        height: 48px;
+        padding: 12px 20px;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 48px;
+        flex-shrink: 0;
+        border-radius: 45px;
+        border: 1.5px solid var(--primary-black, #333);
+    }
+}
+
+/* navはいじっていないので、取り組む必要あり */
+
+/* ==========================
+fv
+============================= */
+.fv{
+    padding-top: 2.941%;
+}
+
+.fv_title{
+    color: var(--primary-orange, #FF8763);
+    font-size: clamp(3.6rem, 9.6vw, 12.8rem);
+    font-weight: 600;
+    line-height: clamp(4.8rem, 12.8vw, 12.8rem);
+    margin-left: 9.3vw;
+}
+
+.fv_subtitle{
+    font-size: clamp(1.4rem, 3.7vw, 2.4rem);
+    font-weight: 400;
+    margin-left: 9.3vw;
+}
+
+.fv_pic{
+    width: 82.5vw;
+    height: 56vw;
+    flex-shrink: 0;
+    aspect-ratio: 309.42/210.00;
+    border-radius: 20px;
+    margin: 4.04vw auto 0 9.3vw ;
+    z-index: 0;
+}
+
+/* .fv_inner{
+    display: grid;
+} */
+
+.fv_inner{
+    position: relative;
+    z-index: 0;
+}
+
+/* ここやり直す */
+
+.fv_scrollDown{
+    z-index: 1;
+    position: absolute;
+    right: 15%;
+    top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fv_scrollDown_text{
+    font-size: 1.2rem;
+    font-weight: 400;
+    writing-mode: vertical-lr;
+    text-align: center; 
+    margin: 0 auto;
+}
+
+.fv_scrollDown_Icon{
+    display: grid;
+    place-items: center;
+    width: 100px;
+    height: 100px;
+    /* ここのサイズを後で確認！ */
+}
+
+.fv_scrollDown_arrow{
+    grid-area: 1/1 ;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 1;
+    top: 5px;
+    left: 5px;
+    /* 矢印のサイズを確認後、top/leftの位置確認。動作を入れること */
+}
+
+.fv_scrollDown_circle{
+    grid-area: 1/1;
+    width: 90%;
+    height: 90%;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+.fv_scrollDown_circleOut{
+    grid-area: 1/1;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #333;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+@media screen and (min-width:1024px) {
+    .fv{
+        padding-top: 126px;
+    }
+    .fv_container{
+        display: flex;
+    }
+
+    #fv h2{
+        font-size: clamp(3.6rem, 9.6vw, 12.8rem);
+        margin: 77px auto 0 4.4%;
+    }
+
+    #fv h3{
+        font-size: clamp(1.4rem, 1.7vw, 2.4rem);
+        margin: 65px 24px 0 auto;
+    }
+    /* ここの文字が折り返されてしまう問題 */
+
+    .fv_pic{
+        width: 95.6%;
+        aspect-ratio: 1301/769;
+        display: block;
+        margin: 67px auto 0;
+    }
+}
+
+
+/* ===========================
+about
+============================== */
+.sv{
+    padding-bottom: 55px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sv_lead{
+    font-size: clamp(2rem, 5.3vw, 3rem);
+    font-weight: 700;
+    line-height: clamp(3rem, 8vw, 4.8rem);
+    letter-spacing: 0.2px;
+    margin: 77px auto 0 9.3%;
+    z-index: 1;
+}
+
+.sv_txt1{
+    margin: 32px 9.3% 0 ;
+    z-index: 1;
+}
+
+.sv_txt2{
+    margin: 39px 9.3% 0 ;
+    z-index: 1;
+}
+
+.sv_btn_wrap{
+    width: 313.737px;
+    height: 66px;
+    border-radius: 45px;
+    background: #F6F8F8;
+    text-align: center;
+    margin:56px 19px 0 9.3%;
+    padding: 20px 18px 20px 34.86px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.sv_btn_arrow_wrap{
+    font-weight: 500;
+    width: 77px;
+    height: 25px;
+    border-radius: 45px;
+    background: var(--primary-orange, #FF8763);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.sv_btn_arrow{
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1/1;
+    z-index: 1;
+}
+
+.sv_imgWrap{
+    display: flex;
+    gap: 19px;
+    margin-top: 41.54px;
+    z-index: 1;
+}
+
+.sv_img{
+    width: 88px;
+    height: 57px;
+    aspect-ratio: 88/57;
+    flex-shrink: 0;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.sv_background{
+/* ここのレスポンシブ問題 */
+    position: absolute;
+    bottom:5.8%;
+    left: 33%;
+    animation: spin 60s linear infinite;
+    transform-origin: center center; 
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+@media screen and (min-width:769px) {
+.sv{
+    padding-bottom: 88px;
+}
+
+    .spBr{
+        display: none;
+    }
+
+    .sv_lead{
+    font-size: clamp(2rem, 2.2vw, 3rem);
+    line-height: clamp(3rem, 3.67vw, 4.8rem);
+    letter-spacing: 0.3px;
+    margin: 246px auto 0 12.3%;
+}
+
+    .sv_txt1{
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 2.37;
+        letter-spacing: 0.64px;
+        width: 50.2%;
+        margin: 60px 10.5% 0  auto;
+    }
+
+    .sv_txt2{
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 2.37;
+        letter-spacing: 0.64px;
+        width: 50.2%;
+        margin: 40px 10.5% 0  auto;
+    }
+
+    .sv_btn_wrap{
+        margin: 40px 10.5% 0  auto;
+    }
+  
+    .sv_imgWrap{
+        gap: 20px;
+        margin-top: 150px;
+    }
+
+    .sv_img{
+        width: 395px;
+        height: 257px;
+        aspect-ratio: 395/257;
+    }
+
+    .sv_background{
+    bottom:5.8%;
+    left: 25%;
+}
+    
+}
+
+
+
+/* ========================
+reason
+========================== */
+.reason_title{
+    color: var(--primary-orange, #FF8763);
+    font-size: clamp(2.6rem, 6.9vw, 10rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 2.08px;
+    margin: 30px auto 0 9.3%;
+}
+
+.reason_subtitle{
+    color: var(--primary-orange, #FF8763);
+    font-size: clamp(1.6rem, 4.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.32px;
+    margin: 8px auto 0 9.3%;
+}
+
+.reason_container{
+    margin: -10px auto 85px;
+}
+
+.reason_imgwrap{
+    margin: 40px 9.3%;
+}
+
+.reason_pic{
+    /* width: 87.1%; */
+    /* height: 58.1vw; */
+    flex-shrink: 0;
+    aspect-ratio: 326.96/218.00;
+}
+
+/* ２個目だけなぜか幅が効かない */
+
+.reason_titleWrap{
+    display: flex;
+    gap: 13px;
+    margin: 34px 9.3% 0; 
+}
+
+.reason_number{
+    font-family: "Noto Sans";
+    font-size: clamp(4rem, 10.6vw, 8rem);
+    font-weight: 600;
+    line-height: 1; 
+}
+
+.reason_lead{
+    font-size: clamp(2rem, 5.3vw, 3rem);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+.reason_text{
+    margin: 16px 9.3% 0;
+}
+
+
+@media screen and (min-width:1024px) {
+    .reason_title{
+        font-size: clamp(2.6rem, 7.3vw, 10rem);
+        letter-spacing: 8px;
+        margin: 40px auto 0 4.8%;
+    }
+
+    .reason_subtitle{
+        font-size: clamp(1.6rem, 1.4vw, 2rem);
+        letter-spacing: 0.4px;
+        line-height: 1.5;
+        margin: 0 auto 0 4.8%;
+    }
+
+    .reason_container{
+        margin: 90px auto 193px;
+        padding: 0 5.7% 0 6.6%;
+    }
+
+    .reason_wrap{
+        display: flex;
+    }
+
+    .reason_wrap:nth-of-type(2){
+        flex-direction: row-reverse;
+        margin-top: 100px;
+    }
+
+    .reason_wrap:nth-of-type(3){
+        margin-top: 74px;
+    }
+
+    .reason_imgwrap{
+        margin: 0;
+        width: 50vw;
+    }
+
+    .reason_pic{
+        width: 50vw;
+        /* width: 46.3vw; */
+        /* height: 26.1vw; */
+        aspect-ratio: 532.44/355.00;
+    }
+    /* ここの画像の幅がおかしい */
+
+    .reason_textWrap{
+        width: 50vw;
+        /* width: 46.3vw; */
+        align-items: center;
+    }
+
+    .reason_titleWrap{
+        gap: 19.8px;
+    }
+
+    .reason_number{
+        font-size: clamp(4rem, 5.88vw, 8rem);
+    }
+
+    .reason_lead{
+        font-size: clamp(2rem, 2.2vw, 3rem);
+        line-height: 1.6;
+        letter-spacing: 0.3px;
+    }
+
+    .reason_text{
+        margin-top: 20px;
+    }
+}
+
+
+/* ====================
+course
+======================= */
+#course{
+    background-color:  #F0F0F0;
+    padding:10px 0 10.666%;
+}
+
+.course_title{
+    font-size: clamp(2.6rem, 6.9vw, 10rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 2.08px;
+    margin: -5% auto 0 9.3%;
+}
+/*letter-spacingのレスポンシブの方法は？*/
+
+.course_subtitle{
+    font-size: clamp(1.6rem, 4.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.32px;
+    margin: 2.13% auto 0 9.3%;
+}
+
+.course_baseWeb,
+.course_baseVideo{
+    background-color: var(--primary-white);
+    width: 94.6%;
+    height: auto;
+    padding: 7.733% 0 10.8%;
+    margin: 9.33% auto 0;
+    /* ここの高さを考える */
+}
+
+.course_picWeb_sp,
+.course_picVideo_sp{
+    width: 87.2%;
+    height: auto;
+    flex-shrink: 0;
+    aspect-ratio: 109/72;
+    object-fit: cover;
+    object-position: 50% 70%;
+    display: block;
+    margin: 0 auto 10.8%;
+}
+
+.course_picVideo_sp{
+    object-fit: contain;
+    object-position: 30% 30%;
+}
+
+.course_picWeb_pc,
+.course_picVideo_pc{
+    display: none;
+}
+
+.course_wrap{
+    padding:0 6.6% 
+}
+
+.course_leadSub{
+    font-size: clamp(1.6rem, 4.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.32px;
+    margin-top: 9.066%;
+}
+
+.course_leadTitle{
+    background: linear-gradient(107deg, #FF6749 12.32%, #FF8763 71.58%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(2rem, 5.3vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.5; /* 150% */
+    letter-spacing: 0.2px;
+    margin-top: 2.133%;
+}
+
+.course_text{
+    margin-top: 4.266%;
+}
+
+.course_inner{
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 15px 12px;
+    flex-shrink: 0;
+    background: #F5F5F5;
+    margin-top: 6.66%;
+}
+
+#course li{
+    display: flex;
+    gap: 2.66%;
+    /* ここの設定の仕方。gapだとテキストが折り返されてしまう。 */
+}
+
+.course_btn{
+    display: flex;
+    width: 305px;
+    height: 52px;
+    padding: 12px 42px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 36px;
+    flex-shrink: 0;
+    border-radius: 45px;
+    border: 1px solid var(--primary-black, #333);
+    margin: 20px auto 0;
+}
+
+@media screen and (min-width:769px) {
+    #course{
+    padding-bottom: 174px;
+    }
+
+    .course_title{
+        font-size: clamp(2.6rem, 7.3vw, 10rem);
+        letter-spacing: 8px;
+        margin: -4.5% auto 0 4.8%;
+    }
+
+    .course_subtitle{
+        font-size: clamp(1.6rem, 1.4vw, 2rem);
+        letter-spacing: 0.4px;
+        line-height: 1.5;
+        margin: 0 auto 0 4.8%;
+    }
+
+    .course_wrap_pc{
+        display: flex;
+        margin-top: 113px;
+        justify-content: center;
+    }
+
+    .course_baseWeb,
+    .course_baseVideo{
+        width: 743px;
+        height: 514px;
+        padding: 0 31px 20px 46px;
+        margin: 0;
+    }
+    .course_picWeb_sp,
+    .course_picVideo_sp{
+        display: none;
+    }
+
+    .course_picWeb_pc,
+    .course_picVideo_pc{
+        width: 395.227px;
+        height: 514px;
+        aspect-ratio: 395.23/514.00;
+        object-fit: cover;
+        display: block;
+    }
+
+    .course_leadSub{
+        font-size: clamp(1.6rem, 4.2vw, 2rem);
+        line-height: 1.5;
+        letter-spacing: 0.4px;
+        margin-top: 63.63px;
+    }
+
+    .course_leadTitle{
+        font-size: clamp(2rem, 2.5vw, 2.8rem);
+        line-height: 2.35;
+        letter-spacing: 0.56px;
+        margin-top: 6.7px;
+    }
+
+    .course_text{
+        margin-top: 0px;
+    }
+
+    .course_inner{
+        padding: 16px 32px;
+        margin-top: 13px;
+    }
+
+    .course_item{
+        margin: 0 auto 0 25px;
+    }
+
+    .course_btn{
+        width: 363px;
+        height: 82px;
+        padding: 12px 50px;
+        gap: 50px;
+        margin: 20px auto 0 0;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.2px;
+    }
+}
+
+/* ===========================
+voice
+===============================*/
+.voice{
+    background-color:var(--primary-white);
+    padding-bottom: 40px;
+}
+
+.voice_title{
+    font-size: clamp(2.6rem, 6.9vw, 10rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 2.08px;
+    margin: 45px auto 0 9.3%;
+}
+
+.voice_subtitle{
+    font-size: clamp(1.6rem, 4.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.32px;
+    margin: 8px auto 0 9.3%;
+}
+
+.voice_container{
+    margin-top: 35px;
+}
+
+.voice_wrap{
+    width: 299px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.voice_pic{
+    width: 299px;
+    height: 403px;
+    flex-shrink: 0;
+    aspect-ratio: 23/31;
+}
+
+.voice_inner{
+    width: 200px;
+    height: 88px;
+    padding: 0 15px;
+    align-items: flex-end;
+    margin: -88px 0 0 auto;
+    background-color: var(--primary-white);
+}
+/* ここの白がうまく反映されないのはなぜ？ */
+
+.voice_name{
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.62;
+}
+
+.voice_year,
+.voice_course{
+    color: #7E8887;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.62;
+}
+
+.voice_leadTitle{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    margin: 18px auto 0;
+}
+
+.voice_btn{
+    display: flex;
+    width: 305px;
+    height: 52px;
+    padding: 12px 16px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 77px;
+    flex-shrink: 0;
+    border-radius: 45px;
+    border: 1.5px solid var(--primary-black, #333);
+    background: #FFF;
+    margin: 45px auto 0;
+}
+
+@media screen and (min-width:769px) {
+    .voice{
+        padding-bottom: 216px;
+    }
+
+    .voice_title{
+        font-size: clamp(2.6rem, 7.3vw, 10rem);
+        letter-spacing: 8px;
+        margin: 151px auto 0 4.8%;
+    }
+
+    .voice_subtitle{
+        font-size: clamp(1.6rem, 1.4vw, 2rem);
+        line-height: 1.5;
+        letter-spacing: 0.4px;
+        margin: 0 auto 0 4.8%;
+    }
+
+    .voice_container{
+        margin-top: 101px;
+    }
+
+    .voice_base{
+        display: flex;
+        margin: 0 87px;
+        gap: 64px;
+    }
+
+    .voice_btn{
+        width: 363px;
+        height: 82px;
+        padding: 12px 50px;
+        gap: 50px;
+        margin: 71px auto 0;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.2px;
+    }
+   
+}
+
+
+/* ===========================
+studio
+============================= */
+.studio{
+    background-color:#F0F0F0;
+    padding: 45px 40px 40px;
+}
+
+.studio_title{
+    font-size: clamp(2.6rem, 6.9vw, 10rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 2.08px;
+    margin: 0 auto 0 9.3%;
+}
+
+.studio_subtitle{
+    font-size: clamp(1.6rem, 4.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.32px;
+    margin: 8px auto 0 9.3%;
+}
+
+.studio_base{
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+}
+
+.studio_wrap{
+    width: 294px;
+    height: auto;
+    flex-shrink: 0;
+    background-color: var(--primary-white);
+    margin: 0 auto;
+    padding: 30px 38px 26.8px;
+}
+
+.studio_name{
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height:  1.5;
+    letter-spacing: 0.2px;
+}
+
+.studio_pic{
+    margin-top: 24px;
+}
+
+.studio_address{
+    margin-top: 19.69px;
+    line-height: 1.71;
+}
+
+.studio_access{
+    margin-top: 8.18px;
+    line-height: 1.71;
+}
+
+/* ここのボタンの高さを揃えるために、文字にheightを入れますか？ */
+
+.studio_btn{
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+    display: inline-flex;
+    padding: 9px 19px 10.976px 21px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 45px;
+    border: 1px solid var(--primary-black, #333);
+    background: #FFF;
+    margin-top: 14.32px;
+}
+
+
+@media screen and (min-width:769px) {
+    .studio{
+        padding:246px 0 90px; 
+    }
+
+    .studio_title{
+        font-size: clamp(2.6rem, 7.3vw, 10rem);
+        letter-spacing: 8px;
+        margin: -296px auto 0 4.8%;
+    }
+
+    .studio_subtitle{
+        font-size: clamp(1.6rem, 1.4vw, 2rem);
+        line-height: 1.5;
+        letter-spacing: 0.4px;
+        margin: 0 auto 0 4.8%;
+    }
+
+    .studio_base{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(364px, 1fr));
+        margin: 151px 7.5vw 0;
+        gap: 29px;
+    }
+
+    .studio_wrap{
+        width: 364px;
+        padding: 55px 48.5px 36px ;
+    }
+
+    .studio_name{
+        font-size: 2.4rem;
+        line-height:  1;
+        letter-spacing: 1.2px;
+    }
+
+    .studio_pic{
+        margin-top: 33px;
+    }
+
+    .studio_address{
+        font-weight: 600;
+        line-height: 1.37;
+        margin-top: 21px;
+    }
+
+    .studio_access{
+        font-weight: 600;
+        line-height: 1.37;
+        margin-top: 8px;
+    }
+
+    .studio_btn{
+        width: 267px;
+        height: 43px;
+        flex-shrink: 0;
+        /* margin-top: 21px; */
+    }     
+}
+
+/* ===========================
+trainer
+============================= */
+.trainer{
+    background-color:var(--primary-white);
+    padding: 45px 35px 40px;
+}
+
+.trainer_title{
+    font-size: clamp(2.6rem, 6.9vw, 10rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 2.08px;
+    margin: 0 auto 0 9.3%;
+}
+
+.trainer_subtitle{
+    font-size: clamp(1.6rem, 4.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.32px;
+    margin: 8px auto 0 9.3%;
+}
+
+.trainer_container{
+    margin-top: 30px;
+}
+
+.trainer_img{
+    width: calc(81.3%, 81.49vw, 35.2%);
+}
+
+.trainer_pic{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 305.59/205.00;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 20px;
+    object-position: 50% 15%;
+}
+
+.trainer_pic:nth-of-type(2){
+    object-position: 50% 80%;
+    /* これがなぜか効かない。本当は50% 20%にしたい */
+}
+
+.trainer_name{
+    font-size: clamp(2rem, 5.3vw, 2.4rem);
+    font-weight: 600;
+    line-height: 30px; /* 150% */
+    letter-spacing: 1.2px;
+    margin-top: 30px;
+}
+
+.trainer_position{
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
+}
+
+.trainer_text{
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
+    margin-top: 16px;
+}
+
+.trainer_wrap:nth-of-type(2){
+    margin-top: 55px;
+}
+
+@media screen and (min-width:769px) {
+    .trainer{
+        padding: 86px 116px 133px;
+    }
+
+    .trainer_title{
+        font-size: clamp(2.6rem, 7.3vw, 10rem);
+        letter-spacing: 8px;
+        margin: 0 auto 0 4.8%;
+    }
+
+    .trainer_subtitle{
+        font-size: clamp(1.6rem, 1.4vw, 2rem);
+        line-height: 1.5;
+        letter-spacing: 0.4px;
+        margin: 0 auto 0 4.8%;
+    }
+
+    .trainer_container{
+        margin-top: 122px;
+        display: flex;
+        gap: 10.1vw;
+    }
+
+    .trainer_img{
+        width: 35.2vw;
+    }
+
+    .trainer_pic{
+        aspect-ratio: 240/161;
+    }
+
+    .trainer_name{
+        font-size: clamp(2rem, 1.7vw, 2.4rem);
+        line-height: 1;
+        margin-top: 52px;
+    }
+
+    .trainer_position{
+        margin-top:7px;
+    }
+
+    .trainer_text{
+        margin-top: 17px;
+    }
+
+    .trainer_wrap:nth-of-type(2){
+        margin-top: 0;
+    }
+}
+
+
+/* ===========================
+faq
+============================= */
+.faq{
+    background-color:#F5F5F5;
+    padding: 45px 6% 40px;
+}
+
+.faq_title{
+    font-size: clamp(2.6rem, 6.9vw, 10rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 2.08px;
+}
+
+.faq_subtitle{
+    font-size: clamp(1.6rem, 4.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.32px;
+    margin: 8px auto 0 0;
+}
+
+.faq_inner{
+    /* display: flex; */
+    padding: 21px 15px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: var(--primary-white);
+    margin-top: 30.26px;
+}
+
+.faq_question{
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.faq_q{
+    color: var(--primary-orange);
+}
+
+.faq_btnOpen{
+    margin-top: -12px;
+}
+
+.faq_btnClose{
+    margin-top: -18px;
+}
+/* ここの高さの設定の仕方。どうやって計算すればいい？ */
+
+@media screen and (min-width:796px) {
+    .faq{
+        padding: 124px 0 165px;
+    }
+
+    .faq_title{
+        font-size: clamp(2.6rem, 7.3vw, 10rem);
+        letter-spacing: 8px;
+        margin: 0 auto 0 4.8%;
+    }
+
+    .faq_subtitle{
+        font-size: clamp(1.6rem, 1.4vw, 2rem);
+        line-height: 1.5;
+        letter-spacing: 0.4px;
+        margin: 0 auto 95px 4.8%;
+    }
+
+    .faq_inner{
+        width: 74.8vw;
+        padding: 21px 22px;
+        margin: 8px auto 0;
+        align-items: center;
+    }
+
+    .faq_question{
+        gap: 16px;
+    }
+    
+}
+
+
+
+
+/* ================================
+cv
+================================== */
+#cv{
+    background:linear-gradient(107deg, #FF6749 12.32%,  #FF8763 71.58%);
+    padding: 45px 9.3% 40px;
+    color:var(--primary-white, #FFF);
+
+}
+
+.cv_title{
+    font-size: clamp(2.6rem, 6.9vw,8.6rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 2.08px;
+}
+
+.cv_subtitle{
+    font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.32px;
+    margin-top: 5px;
+}
+
+.pcBr{
+    display: none;
+}
+
+.cv_container{
+    margin: 43px auto 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cv_lead{
+    font-size: clamp(2rem, 5.3vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    }
+
+ul {
+  list-style-type: disc;  
+}
+
+ul li {
+  display: list-item;
+}
+
+ul li::marker {
+  color: var(--primary-white);
+}
+
+.cv_btnSp {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 55px;            
+    background-color: #FFF;
+    border-radius: 50%;
+    z-index: 1; 
+}
+
+.cv_btnOpenSp {
+  position: absolute;
+  z-index: 1; 
+  left: 30%;
+  top: 30%;
+  width: 24px;
+  height: 24px;
+  transform: rotate(42.608deg);
+}
+/* ここの指定あってますか？特にtop/leftは見た目でOK?ただ小さくした時に円が潰れる。 */
+
+.cv_btnPc,
+.cv_btnOpenPc{
+    display: none;
+}
+
+.cv_text{
+    margin-top: 36px;
+}
+
+@media screen and (min-width:1024px){
+    #cv{
+    padding: 144px 9.7% 127px 11.2% ;
+    }
+
+    .cv_leadWrap{
+        display: flex;
+        gap: 13.3vw;
+    }
+
+    .cv_title{
+        font-size: clamp(2.6rem, 6.3vw,8.6rem);
+        font-weight: 500;
+        letter-spacing: 1.72px;
+    }
+
+    .cv_subtitle{
+        font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+        font-weight: 600;
+        line-height: 2;
+    }
+
+    .pcBr{
+        display: block;
+    }
+
+    .cv_textWrap{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+    }
+
+    .cv_container{
+        margin: 0;
+    }
+
+    .cv_lead{
+        font-size: clamp(2rem, 1.1vw, 1.6rem);
+        line-height: 2;
+    }
+
+
+    .cv_btnPc {
+        position: relative;
+        display: inline-block;
+        width: 55px;
+        height: 55px;            
+        background-color: #FFF;
+        border-radius: 50%;
+        z-index: 1; 
+        margin-top: -52px;
+    }
+
+    .cv_btnOpenPc {
+        display: block;
+        position: absolute;
+        z-index: 1; 
+        left: 30%;
+        top: 30%;
+        width: 24px;
+        height: 24px;
+        transform: rotate(42.608deg);
+    }
+
+    /* 矢印がスクロールした時に上に重なってしまう。 */
+
+    .cv_btnSp,
+    .cv_btnOpenSp{
+        display: none;
+    }
+
+    .cv_text{
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0 -15.7vw 0 0;
+    }
+    /* ここの縦ラインが揃わない 
+    そもそも文字組のペアを変更してdisplay flexをかけるべき？*/
+
+}
+
+
+/* =========================
+footer
+============================ */
+.footer_base{
+    background-color: #7E8887;
+    color: var(--primary-white);
+    padding: 45px 9.3% 18px;
+}
+
+.footer_nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-right: 121px;
+    /* ここの余白の指定方法 */
+}
+
+.footer_logo img{
+    display: block;
+    margin: 41.7px auto 0;
+}
+
+.copy{
+    display: block;
+    text-align: center;
+}
+
+@media screen and (min-width:769px) {
+    #footer{
+        background-color: var(--primary-white);
+        padding: 138px 0 0 17.2vw ;
+    }
+
+    .footer_base{
+    padding: 54.3px 7.6vw 42px 8.5vw ;
+    }
+
+    .footer_nav{
+        display: grid;
+        grid-template-columns:repeat(6, 1fr);
+        justify-content: space-between;
+    }
+
+    .footer_logo img{
+        margin:0 0 0 auto;
+    }
+
+    .copy{
+        text-align: end;
+    }
+    
+}
