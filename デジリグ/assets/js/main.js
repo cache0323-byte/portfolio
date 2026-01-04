@@ -1,5 +1,29 @@
 'use strict';
 
+
+/* 画像をふわっと出す */
+{
+    const fadeElements = document.querySelectorAll('.fadein');
+    // 画面に入ったかどうかを判定する
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        // もし要素が画面内に入ったら
+        if (entry.isIntersecting) {
+        // 「is-animated」というクラスを付与する
+        entry.target.classList.add('is-animated');
+        }
+    });
+    }, {
+    threshold: 0.2 // 要素が20%見えたら実行
+    });
+
+    // すべての「fadein」要素を見張る
+    fadeElements.forEach(el => {
+    observer.observe(el);
+    });
+}
+
+// ハンバーガーメニュー
 {
     $(function(){
         
@@ -34,3 +58,111 @@
         });
     });
 }
+
+
+// svの写真スライダー
+{
+    const swiper = new Swiper(".swiper", {
+    loop: true, 
+    speed: 6000, // 6秒かけて次のスライド
+    allowTouchMove: false, // ユーザーの操作を無効化
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+    },
+    // 表示枚数の設定
+    slidesPerView: 4.5, // スマホでは1.5枚見せる
+    spaceBetween: 10,   // 写真同士の隙間
+    
+    // 1024px以上のときの設定
+    breakpoints: {
+        1024: {
+        slidesPerView: 3, 
+        spaceBetween: 20,
+        },
+    },
+    });
+}
+
+//voice　スライダー
+{
+  const swiperVoice = new Swiper('.voice_base', {
+        loop: true, 
+        slidesPerView: 1, 
+        spaceBetween: 20, 
+        
+        // ページネーション
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        
+        // 矢印
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // PC版レスポンシブ
+        breakpoints: {
+            769: {
+            slidesPerView: 2, // 769px以上では2枚出す
+            centeredSlides: false,
+            spaceBetween: 40,
+            },
+            1024: {
+            slidesPerView: 3, // 1024px以上では3枚出す
+            centeredSlides: false, 
+            spaceBetween: 40,
+            },
+            1440: {
+            slidesPerView: 4, // 1440px以上では4枚出す
+            centeredSlides: false,
+            spaceBetween: 40,
+            }
+        }
+    });
+}
+
+//studio スライダー　スマホのみ
+{
+    const swiperStudio = new Swiper('.swiper-studio', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        loop: true,
+
+        speed: 6000,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: true, // ★ タップしたら止まる
+        },
+
+        slideToClickedSlide: true, 
+    });
+
+    swiperStudio.el.addEventListener('click', () => {
+        swiperStudio.autoplay.stop();
+        const swiperStudio = new Swiper('.swiper-studio', {
+        slidesPerView: 'auto',
+        loop: true,
+        speed: 500,
+        navigation: {
+            nextEl: '.studio_next',
+            prevEl: '.studio_prev',
+        },
+    });
+
+});
+
+
+}
+
+
+//faqのアコーディオン
+$(function() {
+    $('.faq_inner').on('click', function() {
+        $(this).find('.faq_answer').slideToggle();
+        // クラスを切り替えてアイコン（＋/ー）の表示を制御
+        $(this).toggleClass('open');
+    });
+});

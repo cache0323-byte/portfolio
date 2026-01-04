@@ -20,6 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" href="./assets/css/destyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="./assets/css/stylesheet.css">
 </head>
 
@@ -47,7 +49,7 @@
                         </a>
                     </li>
                     <li class="nav_item">
-                        <a href="#school">
+                        <a href="#studio">
                             SCHOOL
                         </a>
                     </li>
@@ -64,7 +66,7 @@
                     <li class="nav_item">
                         <a class="header_btn" href="#">
                             説明会予約
-                            <img src="./assets/images/arrow-r.svg" alt="">
+                            <img src="./assets/images/arrow_orange.png" alt="">
                         </a>
                     </li>
                 </ul>
@@ -79,7 +81,7 @@
                     CODE<br>YOUR FUTURE
                 </h2>
                 <h3 class="fv_subtitle">
-                    未経験から、本物のクリエイターへ。
+                    未経験から、<br class="pcBr">本物のクリエイターへ。
                 </h3>
             </div>
             <div class="fv_inner">
@@ -116,23 +118,41 @@
                 確かな実績があります。創業以来、数々のデザインアワードを受賞してきたWeb制作会社「デジタルハリウッドSTUDIO by
                 LIG（通称：デジLIG）」が運営するWebデザインスクールです。6ヶ月で基礎から応用までを体系的に学び、ゼロからWebサイトを構築できる力を身につけます。完成した卒業制作は、そのまま信頼できるポートフォリオとして活用できます。
             </p>
-            <div class="sv_btn_wrap">
-                <a class="sv_btn" href="#">
+            <a href="#" class="sv_btn_wrap">
+                <span class="sv_btn">
                     About us
-                </a>
+                </span>
                 <div class="sv_btn_arrow_wrap">
                     <img class="sv_btn_arrow" src="./assets/images/arrow_white.png" alt="">
                 </div>
-            </div>
-            <div class="sv_imgWrap">
-                <img class="sv_img" src="./assets/images/about01.jpg" alt="面談をしている">
-                <img class="sv_img" src="./assets/images/about02.jpg" alt="付箋">
-                <img class="sv_img" src="./assets/images/about03.jpg" alt="パソコン">
-                <img class="sv_img" src="./assets/images/about04.jpg" alt="PC作業">
-                <img class="sv_img" src="./assets/images/about05.jpg" alt="教室で談話中">
-                <img class="sv_img" src="./assets/images/about06.jpg" alt="撮影している">
-                <img class="sv_img" src="./assets/images/about07.jpg" alt="勉強中">
-                <img class="sv_img" src="./assets/images/about08.jpg" alt="カラーチャートを確認している">
+            </a>
+            <div class="swiper">
+                <div class="sv_imgWrap swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img class="sv_img" src="./assets/images/about01.jpg" alt="面談をしている">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="sv_img" src="./assets/images/about02.jpg" alt="付箋">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="sv_img" src="./assets/images/about03.jpg" alt="パソコン">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="sv_img" src="./assets/images/about04.jpg" alt="PC作業">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="sv_img" src="./assets/images/about05.jpg" alt="教室で談話中">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="sv_img" src="./assets/images/about06.jpg" alt="撮影している">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="sv_img" src="./assets/images/about07.jpg" alt="勉強中">
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="sv_img" src="./assets/images/about08.jpg" alt="カラーチャートを確認している">
+                    </div>
+                </div>
             </div>
             <img class="sv_background" src="./assets/images/about_us.svg" alt="">
         </section>
@@ -147,7 +167,7 @@
             <div class="reason_container">
                 <div class="reason_wrap">
                     <div class="reason_imgwrap">
-                        <img class="reason_pic" src="./assets/images/reason01.jpg" alt="講義">
+                        <img class="reason_pic fadein" src="./assets/images/reason01.jpg" alt="講義">
                     </div>
                     <div class="reason_textWrap">
                         <div class="reason_titleWrap">
@@ -166,7 +186,7 @@
                 </div>
                 <div class="reason_wrap">
                     <div class="reason_imgwrap">
-                        <img class="reason_pic" src="./assets/images/reason02.jpg" alt="クリエイターの集合写真">
+                        <img class="reason_pic fadein" src="./assets/images/reason02.jpg" alt="クリエイターの集合写真">
                     </div>
                     <div class="reason_textWrap">
                         <div class="reason_titleWrap">
@@ -184,7 +204,7 @@
                 </div>
                 <div class="reason_wrap">
                     <div class="reason_imgwrap">
-                        <img class="reason_pic" src="./assets/images/reason03.jpg" alt="ミーティング">
+                        <img class="reason_pic fadein" src="./assets/images/reason03.jpg" alt="ミーティング">
                     </div>
                     <div class="reason_textWrap">
                         <div class="reason_titleWrap">
@@ -308,83 +328,96 @@
                 –活躍する卒業生の声
             </h3>
             <div class="voice_container">
-                <div class="voice_base">
-                    <div class="voice_wrap">
-                        <div class="voice_pic">
-                            <img class="voice_picWeb" src="./assets/images/voice01.jpg" alt="インタビュー写真かけるさん">
+                <div class="voice_base swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="voice_wrap">
+                                <div class="voice_pic">
+                                    <img class="voice_picWeb" src="./assets/images/voice01.jpg" alt="インタビュー写真かけるさん">
+                                </div>
+                                <div class="voice_inner">
+                                    <p class="voice_name">
+                                        Kakeruさん
+                                    </p>
+                                    <p class="voice_year">
+                                        2022年10月生
+                                    </p>
+                                    <p class="voice_course">
+                                        Webデザイナー専攻
+                                    </p>
+                                </div>
+                                <h4 class="voice_leadTitle">
+                                    アパレル販売から、Webディレクターへ転職
+                                </h4>
+                            </div>
                         </div>
-                        <div class="voice_inner">
-                            <p class="voice_name">
-                                Kakeruさん
-                            </p>
-                            <p class="voice_year">
-                                2022年10月生
-                            </p>
-                            <p class="voice_course">
-                                Webデザイナー専攻
-                            </p>
+                        <div class="swiper-slide">
+                            <div class="voice_wrap">
+                                <div class="voice_pic">
+                                    <img class="voice_picWeb" src="./assets/images/voice02.jpg" alt="インタビュー写真てんさん">
+                                </div>
+                                <div class="voice_inner">
+                                    <p class="voice_name">
+                                        Tenさん
+                                    </p>
+                                    <p class="voice_year">
+                                        2020年9月生
+                                    </p>
+                                    <p class="voice_course">
+                                        Webデザイナー専攻
+                                    </p>
+                                </div>
+                                <h4 class="voice_leadTitle">
+                                    看護師から、Webデザイナーへ転職
+                                </h4>
+                            </div>
                         </div>
-                        <h4 class="voice_leadTitle">
-                            アパレル販売から、Webディレクターへ転職
-                        </h4>
+                        <div class="swiper-slide">
+                            <div class="voice_wrap">
+                                <div class="voice_pic">
+                                    <img class="voice_picWeb" src="./assets/images/voice03.jpg" alt="インタビュー写真たけさん">
+                                </div>
+                                <div class="voice_inner">
+                                    <p class="voice_name">
+                                        Takeさん
+                                    </p>
+                                    <p class="voice_year">
+                                        2023年2月生
+                                    </p>
+                                    <p class="voice_course">
+                                        Webデザイナー専攻
+                                    </p>
+                                </div>
+                                <h4 class="voice_leadTitle">
+                                    デザインができるとできないでは仕事の幅が全然違う
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="voice_wrap">
+                                <div class="voice_pic">
+                                    <img class="voice_picWeb" src="./assets/images/voice07.jpg" alt="インタビュー写真あやのさん">
+                                </div>
+                                <div class="voice_inner">
+                                    <p class="voice_name">
+                                        Ayanoさん
+                                    </p>
+                                    <p class="voice_year">
+                                        2022年6月生
+                                    </p>
+                                    <p class="voice_course">
+                                        Webデザイナー専攻
+                                    </p>
+                                </div>
+                                <h4 class="voice_leadTitle">
+                                    失敗を恐れない。仕事もチャレンジも後押しできる環境
+                                </h4>
+                            </div>
+                        </div>
                     </div>
-                    <div class="voice_wrap">
-                        <div class="voice_pic">
-                            <img class="voice_picWeb" src="./assets/images/voice02.jpg" alt="インタビュー写真てんさん">
-                        </div>
-                        <div class="voice_inner">
-                            <p class="voice_name">
-                                Tenさん
-                            </p>
-                            <p class="voice_year">
-                                2020年9月生
-                            </p>
-                            <p class="voice_course">
-                                Webデザイナー専攻
-                            </p>
-                        </div>
-                        <h4 class="voice_leadTitle">
-                            看護師から、Webデザイナーへ転職
-                        </h4>
-                    </div>
-                    <div class="voice_wrap">
-                        <div class="voice_pic">
-                            <img class="voice_picWeb" src="./assets/images/voice03.jpg" alt="インタビュー写真たけさん">
-                        </div>
-                        <div class="voice_inner">
-                            <p class="voice_name">
-                                Takeさん
-                            </p>
-                            <p class="voice_year">
-                                2023年2月生
-                            </p>
-                            <p class="voice_course">
-                                Webデザイナー専攻
-                            </p>
-                        </div>
-                        <h4 class="voice_leadTitle">
-                            デザインができるとできないでは仕事の幅が全然違う
-                        </h4>
-                    </div>
-                    <div class="voice_wrap">
-                        <div class="voice_pic">
-                            <img class="voice_picWeb" src="./assets/images/voice04.jpg" alt="インタビュー写真あやのさん">
-                        </div>
-                        <div class="voice_inner">
-                            <p class="voice_name">
-                                Ayanoさん
-                            </p>
-                            <p class="voice_year">
-                                2022年6月生
-                            </p>
-                            <p class="voice_course">
-                                Webデザイナー専攻
-                            </p>
-                        </div>
-                        <h4 class="voice_leadTitle">
-                            失敗を恐れない。仕事もチャレンジも後押しできる環境
-                        </h4>
-                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
                 <a class="voice_btn" href="#">
                     VIEW MORE
@@ -400,9 +433,9 @@
             <h3 class="studio_subtitle">
                 –校舎紹介
             </h3>
-            <div class="studio_container">
-                <div class="studio_base">
-                    <div class="studio_wrap">
+            <div class="studio_container swiper swiper-studio">
+                <div class="studio_base swiper-wrapper">
+                    <div class="studio_wrap swiper-slide">
                         <h4 class="studio_name">
                             上野校
                         </h4>
@@ -422,7 +455,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap">
+                    <div class="studio_wrap swiper-slide">
                         <h4 class="studio_name">
                             池袋校
                         </h4>
@@ -441,7 +474,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap">
+                    <div class="studio_wrap swiper-slide">
                         <h4 class="studio_name">
                             大宮校
                         </h4>
@@ -460,7 +493,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap">
+                    <div class="studio_wrap swiper-slide">
                         <h4 class="studio_name">
                             北千住校
                         </h4>
@@ -479,7 +512,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap">
+                    <div class="studio_wrap swiper-slide">
                         <h4 class="studio_name">
                             川崎校
                         </h4>
@@ -498,7 +531,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap">
+                    <div class="studio_wrap swiper-slide">
                         <h4 class="studio_name">
                             町田校
                         </h4>
@@ -518,12 +551,16 @@
                         </a>
                     </div>
                 </div>
+                <div class="studio_nav">
+                    <button class="studio_prev">←</button>
+                    <button class="studio_next">→</button>
+                </div>
             </div>
         </section>
 
         <section id="trainer" class="trainer">
             <h2 class="trainer_title">
-                TRAINER
+                TRAINERA
             </h2>
             <h3 class="trainer_subtitle">
                 –トレーナー紹介
@@ -576,12 +613,14 @@
                         <p class="faq_text">
                             全くの初心者でも大丈夫ですか？
                         </p>
-                        <p class="faq_btnOpen">
-                            <img src="./assets/images/+.svg" alt="開く">
-                        </p>
-                        <p class="faq_btnClose">
-                            <img src="./assets/images/ー.svg" alt="閉じる">
-                        </p>
+                        <div class="faq_icon">
+                            <p class="faq_btnOpen">
+                                <img src="./assets/images/+.svg" alt="開く">
+                            </p>
+                            <p class="faq_btnClose">
+                                <img src="./assets/images/ー.svg" alt="閉じる">
+                            </p>
+                        </div>
                     </div>
                     <p class="faq_answer">
                         大丈夫です。入学する8割の方が未経験からのスタートです。動画教材は何度でも繰り返し視聴ができ、分からないところは個別でトレーナーへ質問が可能です。未経験からプロになるまでに必要なスキルや知識、ノウハウを網羅したカリキュラムを提供しております。
@@ -595,15 +634,17 @@
                         <p class="faq_text">
                             自宅で学習可能ですか？
                         </p>
-                        <p class="faq_btnOpen">
-                            <img src="./assets/images/+.svg" alt="開く">
-                        </p>
-                        <p class="faq_btnClose">
-                            <img src="./assets/images/ー.svg" alt="閉じる">
-                        </p>
+                        <div class="faq_icon">
+                            <p class="faq_btnOpen">
+                                <img src="./assets/images/+.svg" alt="開く">
+                            </p>
+                            <p class="faq_btnClose">
+                                <img src="./assets/images/ー.svg" alt="閉じる">
+                            </p>
+                        </div>
                     </div>
                     <p class="faq_answer">
-                        大丈夫です。入学する8割の方が未経験からのスタートです。動画教材は何度でも繰り返し視聴ができ、分からないところは個別でトレーナーへ質問が可能です。未経験からプロになるまでに必要なスキルや知識、ノウハウを網羅したカリキュラムを提供しております。
+                        当校では、通学とオンライン学習のカスタマイズが可能です。毎日通学している方や遠方にお住まいで完全オンラインで学習されている方もいらっしゃいます。自宅で学習する場合はネットワーク環境とPC、Adobeのソフトが必要となります。
                     </p>
                 </div>
                 <div class="faq_inner">
@@ -614,15 +655,17 @@
                         <p class="faq_text">
                             子育てしながら学習は可能ですか？
                         </p>
-                        <p class="faq_btnOpen">
-                            <img src="./assets/images/+.svg" alt="開く">
-                        </p>
-                        <p class="faq_btnClose">
-                            <img src="./assets/images/ー.svg" alt="閉じる">
-                        </p>
+                        <div class="faq_icon">
+                            <p class="faq_btnOpen">
+                                <img src="./assets/images/+.svg" alt="開く">
+                            </p>
+                            <p class="faq_btnClose">
+                                <img src="./assets/images/ー.svg" alt="閉じる">
+                            </p>
+                        </div>
                     </div>
                     <p class="faq_answer">
-                        大丈夫です。入学する8割の方が未経験からのスタートです。動画教材は何度でも繰り返し視聴ができ、分からないところは個別でトレーナーへ質問が可能です。未経験からプロになるまでに必要なスキルや知識、ノウハウを網羅したカリキュラムを提供しております。
+                        もちろん、子育てしながら学習が可能です。20代、30代で子育てや家事の合間に学習を進めている方も多くいらっしゃいます。忙しいスケジュールの中どのように習得していくのか、説明会時や入学後にカウンセラーに相談いただきながらスケジューリングが可能です。
                     </p>
                 </div>
                 <div class="faq_inner">
@@ -633,15 +676,17 @@
                         <p class="faq_text">
                             30歳を超えていても受講は可能ですか？
                         </p>
-                        <p class="faq_btnOpen">
-                            <img src="./assets/images/+.svg" alt="開く">
-                        </p>
-                        <p class="faq_btnClose">
-                            <img src="./assets/images/ー.svg" alt="閉じる">
-                        </p>
+                        <div class="faq_icon">
+                            <p class="faq_btnOpen">
+                                <img src="./assets/images/+.svg" alt="開く">
+                            </p>
+                            <p class="faq_btnClose">
+                                <img src="./assets/images/ー.svg" alt="閉じる">
+                            </p>
+                        </div>
                     </div>
                     <p class="faq_answer">
-                        大丈夫です。入学する8割の方が未経験からのスタートです。動画教材は何度でも繰り返し視聴ができ、分からないところは個別でトレーナーへ質問が可能です。未経験からプロになるまでに必要なスキルや知識、ノウハウを網羅したカリキュラムを提供しております。
+                        可能です。現在30歳以上の方のご利用の方も多く、副業やフリーランス、就転職の実績がございます。デジタルハリウッドSTUDIO by LIGでは横の繋がりも作っていただける環境もご用意しておりますので、ぜひ同じ目標を持った同じ年齢の方との繋がりをつくる環境としてもご活用ください。
                     </p>
                 </div>
                 <div class="faq_inner">
@@ -652,15 +697,17 @@
                         <p class="faq_text">
                             卒業後のサポートはありますか？
                         </p>
-                        <p class="faq_btnOpen">
-                            <img src="./assets/images/+.svg" alt="開く">
-                        </p>
-                        <p class="faq_btnClose">
-                            <img src="./assets/images/ー.svg" alt="閉じる">
-                        </p>
+                        <div class="faq_icon">
+                            <p class="faq_btnOpen">
+                                <img src="./assets/images/+.svg" alt="開く">
+                            </p>
+                            <p class="faq_btnClose">
+                                <img src="./assets/images/ー.svg" alt="閉じる">
+                            </p>
+                        </div>
                     </div>
                     <p class="faq_answer">
-                        大丈夫です。入学する8割の方が未経験からのスタートです。動画教材は何度でも繰り返し視聴ができ、分からないところは個別でトレーナーへ質問が可能です。未経験からプロになるまでに必要なスキルや知識、ノウハウを網羅したカリキュラムを提供しております。
+                       卒業後も就転職のサポートは無期限でご利用いただくことが可能です。転職カウンセラーとの面談を通してキャリアの相談や就転職のスケジュール決めや進め方、ポートフォリオや履歴書の添削等実施しております。卒業後もサポート内容はご利用いただけますので、ご安心ください。
                     </p>
                 </div>
             </div>
