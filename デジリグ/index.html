@@ -20,8 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" href="./assets/css/destyle.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="./assets/css/stylesheet.css">
 </head>
 
@@ -85,7 +85,7 @@
                 </h3>
             </div>
             <div class="fv_inner">
-                <div class="fv_scrollDown">
+                <!-- <div class="fv_scrollDown">
                     <span class="fv_scrollDown_text">
                         SCROLL DOWN
                     </span>
@@ -97,12 +97,12 @@
                         </span>
                         <span class="fv_scrollDown_circleOut">
                         </span>
-                    </span>
-                </div>
-                </button>
-                <div class="fv_wrap">
-                    <img class="fv_pic" src="./assets/images/fv.jpg" alt="パソコンをしている女性">
-                </div>
+                    </span> -->
+            </div>
+            </button>
+            <div class="fv_wrap">
+                <img class="fv_pic" src="./assets/images/fv.jpg" alt="パソコンをしている女性">
+            </div>
             </div>
         </section>
 
@@ -264,7 +264,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a class="course_btn" href="#">
+                            <a class="course_btn c-btn-hover" href="#">
                                 コース詳細を見る
                                 <img src="./assets/images/arrow-r.svg" alt="">
                             </a>
@@ -307,7 +307,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a class="course_btn" href="#">
+                            <a class="course_btn c-btn-hover" href="#">
                                 コース詳細を見る
                                 <img src="./assets/images/arrow-r.svg" alt="">
                             </a>
@@ -419,7 +419,7 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
-                <a class="voice_btn" href="#">
+                <a class="voice_btn c-btn-hover" href="#">
                     VIEW MORE
                     <img src="./assets/images/arrow-r.svg" alt="">
                 </a>
@@ -433,9 +433,9 @@
             <h3 class="studio_subtitle">
                 –校舎紹介
             </h3>
-            <div class="studio_container swiper swiper-studio">
-                <div class="studio_base swiper-wrapper">
-                    <div class="studio_wrap swiper-slide">
+            <div class="studio_container">
+                <div class="studio_base slick-studio">
+                    <div class="studio_wrap">
                         <h4 class="studio_name">
                             上野校
                         </h4>
@@ -455,7 +455,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap swiper-slide">
+                    <div class="studio_wrap">
                         <h4 class="studio_name">
                             池袋校
                         </h4>
@@ -474,7 +474,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap swiper-slide">
+                    <div class="studio_wrap">
                         <h4 class="studio_name">
                             大宮校
                         </h4>
@@ -493,7 +493,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap swiper-slide">
+                    <div class="studio_wrap">
                         <h4 class="studio_name">
                             北千住校
                         </h4>
@@ -512,7 +512,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap swiper-slide">
+                    <div class="studio_wrap">
                         <h4 class="studio_name">
                             川崎校
                         </h4>
@@ -531,7 +531,7 @@
                             <img src="./assets/images/open.svg" alt="">
                         </a>
                     </div>
-                    <div class="studio_wrap swiper-slide">
+                    <div class="studio_wrap">
                         <h4 class="studio_name">
                             町田校
                         </h4>
@@ -686,7 +686,8 @@
                         </div>
                     </div>
                     <p class="faq_answer">
-                        可能です。現在30歳以上の方のご利用の方も多く、副業やフリーランス、就転職の実績がございます。デジタルハリウッドSTUDIO by LIGでは横の繋がりも作っていただける環境もご用意しておりますので、ぜひ同じ目標を持った同じ年齢の方との繋がりをつくる環境としてもご活用ください。
+                        可能です。現在30歳以上の方のご利用の方も多く、副業やフリーランス、就転職の実績がございます。デジタルハリウッドSTUDIO by
+                        LIGでは横の繋がりも作っていただける環境もご用意しておりますので、ぜひ同じ目標を持った同じ年齢の方との繋がりをつくる環境としてもご活用ください。
                     </p>
                 </div>
                 <div class="faq_inner">
@@ -707,7 +708,7 @@
                         </div>
                     </div>
                     <p class="faq_answer">
-                       卒業後も就転職のサポートは無期限でご利用いただくことが可能です。転職カウンセラーとの面談を通してキャリアの相談や就転職のスケジュール決めや進め方、ポートフォリオや履歴書の添削等実施しております。卒業後もサポート内容はご利用いただけますので、ご安心ください。
+                        卒業後も就転職のサポートは無期限でご利用いただくことが可能です。転職カウンセラーとの面談を通してキャリアの相談や就転職のスケジュール決めや進め方、ポートフォリオや履歴書の添削等実施しております。卒業後もサポート内容はご利用いただけますので、ご安心ください。
                     </p>
                 </div>
             </div>
@@ -778,6 +779,9 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 

@@ -124,38 +124,30 @@
     });
 }
 
-//studio スライダー　スマホのみ
-{
-    const swiperStudio = new Swiper('.swiper-studio', {
-        slidesPerView: 'auto',
-        spaceBetween: 20,
-        loop: true,
-
-        speed: 6000,
-        autoplay: {
-            delay: 0,
-            disableOnInteraction: true, // ★ タップしたら止まる
-        },
-
-        slideToClickedSlide: true, 
-    });
-
-    swiperStudio.el.addEventListener('click', () => {
-        swiperStudio.autoplay.stop();
-        const swiperStudio = new Swiper('.swiper-studio', {
-        slidesPerView: 'auto',
-        loop: true,
-        speed: 500,
-        navigation: {
-            nextEl: '.studio_next',
-            prevEl: '.studio_prev',
-        },
-    });
-
+//studio スライダー　スマホのみ   
+$(document).ready(function(){
+  $('.slick-studio').slick({
+    rtl: true,
+    autoplay:true,
+    autoplaySpeed: 3000,
+    speed: 500,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,         // 矢印を有効化
+    prevArrow: '.studio_prev', // HTMLにある自作ボタンを指定
+    nextArrow: '.studio_next',
+    dots: true,           // ドットナビが必要なら
+    responsive: [
+      {
+        breakpoint: 768,  // 768px以上のデスクトップ設定
+        settings: 'unslick'
+        }
+      
+    ]
+  });
 });
 
-
-}
 
 
 //faqのアコーディオン

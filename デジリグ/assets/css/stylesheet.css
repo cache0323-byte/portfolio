@@ -39,6 +39,32 @@ img {
   transform: translateY(0);
 }
 
+.c-btn-hover{
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* ホバー時のスタイル */
+.c-btn-hover:hover {
+    background-color: var(--primary-orange) !important;
+    border-color: var(--primary-orange) !important;
+    color: var(--primary-white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 135, 99, 0.3);
+}
+
+/* ホバー時に中の矢印を右に動かし、色を白にする */
+.c-btn-hover:hover img {
+    filter: brightness(0) invert(1); /* 黒いアイコンを白に変換 */
+    transform: translateX(5px);      /* 右に5pxスライド */
+}
+
+/* 矢印自体の動きも滑らかにする */
+.c-btn-hover img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 
 
 /* ============================
@@ -408,22 +434,24 @@ about　　ボタンの動きをつける
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-decoration: none;
     z-index: 1;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .sv_btn_arrow_wrap {
-    font-weight: 500;
     width: 77px;
     height: 25px;
     border-radius: 45px;
+    font-weight: 500;
     background: var(--primary-orange, #FF8763);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
-    transition: transform 0.3s ease; 
+    transition: all 0.3s ease; 
+    pointer-events: none;
 }
 
 .sv_btn_arrow {
@@ -431,7 +459,7 @@ about　　ボタンの動きをつける
     height: 20px;
     aspect-ratio: 1/1;
     z-index: 1;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .sv_btn_wrap:hover .sv_btn_arrow {
@@ -1081,13 +1109,14 @@ studio
 .studio_base {
     margin-top: 30px;
     display: flex;
+    gap: 20px;
 }
 
-.swiper-pagination-bullet-active {
+/* .swiper-pagination-bullet-active {
     background-color: var(--primary-orange);
-}
+} */
 
-.studio_wrap.swiper-slide {
+.studio_wrap {
     width: 294px;
     min-width: 294px;
     height: auto;
@@ -1099,9 +1128,6 @@ studio
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-}
-.swiper-wrapper{
-    will-change: transform;
 }
 
 .studio_name {
@@ -1164,7 +1190,7 @@ studio
         margin: 0 auto 0 4.8%;
     }
 
-    .studio_base.swiper-wrapper {
+    .studio_base {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(364px, 1fr));
         gap: 29px;
@@ -1174,7 +1200,7 @@ studio
         width: 100% !important;
     }
 
-    .studio_wrap.swiper-slide {
+    .studio_wrap {
         /* height: auto; */
         width: 100% ;
         max-width: 364px;
