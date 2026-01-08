@@ -60,93 +60,95 @@
 }
 
 
-// svの写真スライダー
-{
-    const swiper = new Swiper(".swiper", {
-    loop: true, 
-    speed: 6000, // 6秒かけて次のスライド
-    allowTouchMove: false, // ユーザーの操作を無効化
-    autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-    },
-    // 表示枚数の設定
-    slidesPerView: 4.5, // スマホでは1.5枚見せる
-    spaceBetween: 10,   // 写真同士の隙間
-    
-    // 1024px以上のときの設定
-    breakpoints: {
-        1024: {
-        slidesPerView: 3, 
-        spaceBetween: 20,
-        },
-    },
+
+  // svの写真スライダー（Slick版）
+$(function() {
+    $('.slick-sv').slick({
+        autoplay: true,
+        autoplaySpeed: 0, // 止めずに動かし続ける
+        speed: 6000,      // 6秒かけてゆっくり流れる
+        cssEase: 'linear', // 流れる動きを滑らか（等速）にする
+        slidesToShow: 4.5,
+        swipe: false,      // ユーザー操作を無効化（SwiperのallowTouchMove相当）
+        arrows: false,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                }
+            }
+        ]
     });
-}
+});
+
 
 //voice　スライダー
-{
-  const swiperVoice = new Swiper('.voice_base', {
-        loop: true, 
-        slidesPerView: 1, 
-        spaceBetween: 20, 
-        
-        // ページネーション
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        
-        // 矢印
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-
-        // PC版レスポンシブ
-        breakpoints: {
-            769: {
-            slidesPerView: 2, // 769px以上では2枚出す
-            centeredSlides: false,
-            spaceBetween: 40,
+$('.slick-base').slick({
+        infinite: true,
+        slidesToShow: 1,
+        spaceBetween: 20, // 注: Slick自体にmargin機能はないためCSSで調整が必要
+        dots: true,
+        appendDots: '.swiper-pagination', // 既存のHTML構造に合わせる場合
+        prevArrow: '.slick-button-prev',
+        nextArrow: '.slick-button-next',
+        responsive: [
+            {
+                breakpoint: 1440,
+                settings: { slidesToShow: 4 }
             },
-            1024: {
-            slidesPerView: 3, // 1024px以上では3枚出す
-            centeredSlides: false, 
-            spaceBetween: 40,
+            {
+                breakpoint: 1024,
+                settings: { slidesToShow: 3 }
             },
-            1440: {
-            slidesPerView: 4, // 1440px以上では4枚出す
-            centeredSlides: false,
-            spaceBetween: 40,
+            {
+                breakpoint: 769,
+                settings: { slidesToShow: 2 }
             }
-        }
+        ]
     });
-}
 
 //studio スライダー　スマホのみ   
-$(document).ready(function(){
+//   $('.slick-studio').slick({
+//     mobileFirst: true,
+//     autoplay:true,
+//     autoplaySpeed: 3000,
+//     speed: 500,
+//     infinite: true,
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     arrows: true,         // 矢印を有効化
+//     // prevArrow: '.studio_prev', // HTMLにある自作ボタンを指定
+//     // nextArrow: '.studio_next',
+//     dots: true,           // ドットナビが必要なら
+//     responsive: [
+//       {
+//         breakpoint: 768,  // 768px以上のデスクトップ設定
+//         settings: 'unslick'
+//         }
+//     ]
+//   });
+
   $('.slick-studio').slick({
-    rtl: true,
-    autoplay:true,
+    mobileFirst: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     speed: 500,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,         // 矢印を有効化
-    prevArrow: '.studio_prev', // HTMLにある自作ボタンを指定
-    nextArrow: '.studio_next',
-    dots: true,           // ドットナビが必要なら
+    arrows: false, // スマホでは矢印よりドットの方が操作しやすいため一旦false
+    dots: true,    // ページネーションを有効化
     responsive: [
-      {
-        breakpoint: 768,  // 768px以上のデスクトップ設定
-        settings: 'unslick'
+        {
+            breakpoint: 768,
+            settings: 'unslick' // 768px以上でスライダー解除
         }
-      
     ]
-  });
 });
+
 
 
 

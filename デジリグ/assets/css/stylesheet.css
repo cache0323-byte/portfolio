@@ -1099,17 +1099,17 @@ studio
     margin: 8px auto 0 9.3%;
 }
 
-.swiper-studio {
+.slick-studio {
     width: 100%;
     overflow: hidden;
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
     --swiper-theme-color: var(--primary-orange);
 }
 
 .studio_base {
     margin-top: 30px;
-    display: flex;
-    gap: 20px;
+    /* display: flex;
+    gap: 20px; */
 }
 
 /* .swiper-pagination-bullet-active {
@@ -1128,6 +1128,7 @@ studio
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    margin: 0 10px;
 }
 
 .studio_name {
@@ -1167,6 +1168,15 @@ studio
     background: #FFF;
     margin-top: auto;
     /* margin-top: 14.32px; */
+}
+
+/* ページネーション（ドット）の色を変えたい場合 */
+.slick-dots li button:before {
+    color: var(--primary-orange, orange);
+    font-size: 12px;
+}
+.slick-dots li.slick-active button:before {
+    color: var(--primary-orange, orange);
 }
 
 
