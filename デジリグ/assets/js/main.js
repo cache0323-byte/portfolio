@@ -60,55 +60,45 @@
 }
 
 
-
-  // svの写真スライダー（Slick版）
-$(function() {
-    $('.slick-sv').slick({
-        autoplay: true,
-        autoplaySpeed: 0, // 止めずに動かし続ける
-        speed: 6000,      // 6秒かけてゆっくり流れる
-        cssEase: 'linear', // 流れる動きを滑らか（等速）にする
-        slidesToShow: 4.5,
-        swipe: false,      // ユーザー操作を無効化（SwiperのallowTouchMove相当）
-        arrows: false,
-        pauseOnFocus: false,
-        pauseOnHover: false,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                }
+// //voice　スライダー
+$('.slick-voice').slick({
+    mobileFirst: true,
+    autoplay:true,
+    autoplaySpeed: 3000,
+    speed: 600,
+    cssEase:'ease-in-out',
+    infinite: true,
+    slidesToShow: 1, 
+    slidesToScroll:1,
+    centerMode: true,   
+    centerPadding: '0', 
+    dots: true,
+    responsive: [
+        // {
+        //     breakpoint: 1440,
+        //     settings: {
+        //         slidesToShow: 3,
+        //         centerMode: true
+        //     }
+        // },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                centerMode: false
             }
-        ]
-    });
+        },
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll:1,
+                centerMode: true,
+                centerPadding:'0'
+            }
+        }
+    ]
 });
-
-
-//voice　スライダー
-$('.slick-base').slick({
-        infinite: true,
-        slidesToShow: 1,
-        spaceBetween: 20, // 注: Slick自体にmargin機能はないためCSSで調整が必要
-        dots: true,
-        appendDots: '.swiper-pagination', // 既存のHTML構造に合わせる場合
-        prevArrow: '.slick-button-prev',
-        nextArrow: '.slick-button-next',
-        responsive: [
-            {
-                breakpoint: 1440,
-                settings: { slidesToShow: 4 }
-            },
-            {
-                breakpoint: 1024,
-                settings: { slidesToShow: 3 }
-            },
-            {
-                breakpoint: 769,
-                settings: { slidesToShow: 2 }
-            }
-        ]
-    });
 
 //studio スライダー　スマホのみ   
 //   $('.slick-studio').slick({
