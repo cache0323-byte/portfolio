@@ -51,6 +51,11 @@ h2{
     margin: 28px auto 0;
 }
 
+h2.aroma-fade.is-active .section_deco {
+    transition-delay: 0.5s;
+    display: inline-block; /* transitionを効かせるため */
+}
+
 h3{
     color: var(--black, #3E3A39);
     font-size: 1.8rem;

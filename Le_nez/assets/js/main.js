@@ -27,10 +27,26 @@
             const target = $(this).data('target');
             $('.menu_content').removeClass('active');
             $('.content-' + target).addClass('active');
-          });
-
-
-          
-          
+          });      
     });
+}
+
+//h2 の動き
+{
+    $(function() {
+    $(window).on('scroll', function() {
+        $('.aroma-fade').each(function() {
+            var elemPos = $(this).offset().top;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            
+            // 画面の3/4くらいまでスクロールしたら発火
+            if (scroll > elemPos - windowHeight + (windowHeight / 4)) {
+                $(this).addClass('is-active');
+            }
+        });
+    });
+    // ロード時にも一度実行（最初から画面内にある見出しのため）
+    $(window).trigger('scroll');
+});
 }
