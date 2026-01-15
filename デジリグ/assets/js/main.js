@@ -1,6 +1,5 @@
 'use strict';
 
-
 /* 画像をふわっと出す */
 {
     const fadeElements = document.querySelectorAll('.fadein');
@@ -59,7 +58,6 @@
     });
 }
 
-
 //voice　スライダー
 $('.slick-voice').slick({
     mobileFirst: true,
@@ -92,49 +90,45 @@ $('.slick-voice').slick({
     ]
 });
 
+function initSlick() {
+    const $slider = $('.slick-studio');
 
-
-//studio スライダー　スマホのみ   
-//   $('.slick-studio').slick({
-//     mobileFirst: true,
-//     autoplay:true,
-//     autoplaySpeed: 3000,
-//     speed: 500,
-//     infinite: true,
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     arrows: true,         // 矢印を有効化
-//     // prevArrow: '.studio_prev', // HTMLにある自作ボタンを指定
-//     // nextArrow: '.studio_next',
-//     dots: true,           // ドットナビが必要なら
-//     responsive: [
-//       {
-//         breakpoint: 768,  // 768px以上のデスクトップ設定
-//         settings: 'unslick'
-//         }
-//     ]
-//   });
-
-  $('.slick-studio').slick({
-    mobileFirst: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    speed: 500,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false, // スマホでは矢印よりドットの方が操作しやすいため一旦false
-    dots: true,    // ページネーションを有効化
-    responsive: [
-        {
-            breakpoint: 768,
-            settings: 'unslick' // 768px以上でスライダー解除
+    // 768px未満かつ、まだスライダーが初期化されていない場合のみ実行
+    if (window.innerWidth < 768) {
+        if (!$slider.hasClass('slick-initialized')) {
+            $slider.slick({
+                mobileFirst: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                speed: 500,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                dots: true,
+                swipe: true,
+                draggable: true,
+                waitForAnimate: false,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: 'unslick'
+                    }
+                ]
+            });
         }
-    ]
+    }
+}
+
+// 1. ページ読み込み時に実行
+$(function() {
+    initSlick();
 });
 
-
-
+// 2. 画面サイズが変わった時に実行
+$(window).on('resize', function() {
+    initSlick();
+});
 
 //faqのアコーディオン
 $(function() {

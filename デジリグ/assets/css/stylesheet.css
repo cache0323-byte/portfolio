@@ -17,7 +17,7 @@ body {
     font-family: Montserrat;
     font-size: clamp(1.4rem, 3.7vw, 1.6rem);
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: clamp(2.4rem, 6.4vw, 3.8rem);
     color: var(--primary-black, #333333);
 }
@@ -468,7 +468,7 @@ about
 .sv_slider_wrap {
     display: flex;
     width: fit-content; 
-    animation: loop-slide 0s linear infinite;
+    animation: loop-slide 20s linear infinite;
 }
 
 .sv_imgWrap {
@@ -701,7 +701,7 @@ course
 ======================= */
 #course {
     background-color: #F0F0F0;
-    padding: 10px 0 10.666%;
+    padding: 10px 8% 10.666%;
 }
 
 .course_title {
@@ -737,7 +737,6 @@ course
     flex-shrink: 0;
     aspect-ratio: 109/72;
     object-fit: cover;
-    /* object-position: 50% 70%; */
     display: block;
     margin: 0 0 10.8%;
 }
@@ -835,7 +834,6 @@ course
     .course_baseWeb,
     .course_baseVideo {
         width: 743px;
-        height: 514px;
         padding: 0 31px 20px 46px;
         margin: 0;
     }
@@ -934,9 +932,6 @@ voice
     margin: 0 10px;
     display: block !important;
     outline: none;
-    /* grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    position: relative; */
 }
 
 .slick-slide{
@@ -947,19 +942,15 @@ voice
 .voice_pic_container {
     position: relative;
     width: 100%;
-    max-width: 299px; /* 最大幅はここで制御 */
-    margin: 0 auto;   /* 中央寄せ */
+    max-width: 299px; 
+    margin: 0 auto;  
 }
 
 .voice_pic {
-    /* width: 299px; */
-    /* height: 403px; */
-    /* flex-shrink: 0; */
     width: 100%;
     height: auto;
     overflow: hidden;
     aspect-ratio: 23/31;
-    /* grid-area: 1/1; */
     z-index: 1;
 }
 
@@ -972,17 +963,12 @@ voice
 }
 
 .voice_inner {
-    /* position: relative; */
     position: absolute;
     bottom: 0;
     right: 0;
-    /* grid-area: 1/1; */
     z-index: 2;
     width: 200px;
-    /* height: auto; */
     padding: 15px;
-    /* align-self: end; */
-    /* justify-self: end; */
     background-color: var(--primary-white);
     border-radius: 20px 0 0 0;
 }
@@ -1002,7 +988,6 @@ voice
 }
 
 .voice_leadTitle {
-    /* grid-area: 2/1; */
     max-width: 299px;
     margin: 18px auto 0;
     font-size: 2rem;
@@ -1053,7 +1038,6 @@ voice
     }
 
     .voice_wrap {
-        /* gap: 66px; */
         margin: 0 15px;
     }
 
@@ -1123,29 +1107,19 @@ studio
 
 .slick-studio {
     width: 100%;
-    overflow: hidden;
-    /* padding-bottom: 40px; */
-    --swiper-theme-color: var(--primary-orange);
 }
 
 .studio_base {
     margin-top: 30px;
-    /* display: flex;
-    gap: 20px; */
+    padding: 0 10%;
 }
 
-/* .swiper-pagination-bullet-active {
-    background-color: var(--primary-orange);
-} */
-
 .studio_wrap {
-    width: 294px;
-    min-width: 294px;
+    width: 100%;
+    min-width: 0;
     height: auto;
-    flex-shrink: 0;
-    /* transition: none !important; */
+    flex-shrink: 1;
     background-color: var(--primary-white);
-    /* margin: 0 auto; */
     padding: 30px 38px 26.8px;
     display: flex;
     flex-direction: column;
@@ -1160,6 +1134,13 @@ studio
     font-weight: 600;
     line-height: 1.5;
     letter-spacing: 0.2px;
+}
+
+.studio_inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .studio_pic {
@@ -1188,23 +1169,53 @@ studio
     border-radius: 45px;
     border: 1px solid var(--primary-black, #333);
     background: #FFF;
-    margin-top: auto;
-    /* margin-top: 14.32px; */
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.studio_btn img {
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* ページネーション（ドット）の色を変えたい場合 */
-.slick-dots li button:before {
-    color: var(--primary-orange, orange);
-    font-size: 12px;
+.studio_btn:hover {
+    background-color: #333; 
+    color: #FFF;   
 }
-.slick-dots li.slick-active button:before {
-    color: var(--primary-orange, orange);
+.studio_btn:hover img {
+    filter: brightness(0) invert(1); /* 黒い画像が真っ白になる */
+    transform: translateX(4px);    /* 少し右に動かす */
+}
+.slick-dots {
+    bottom: -40px; 
+    left: 0;         
+    width: 100%;  
+    padding: 0 !important; /* 初期パディングを消す */
+    margin: 0; 
+    display: flex !important; 
+    justify-content: center;
+    list-style: none;
+    z-index: 1; 
+}
+
+.slick-dots li {
+    margin: 0 5px; 
+}
+
+/* クリック判定を広げる */
+.slick-dots li button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* スライド全体も指で動かせる */
+.slick-slider {
+    touch-action: pan-y; /* 縦スクロールを邪魔せず、横スワイプを有効化 */
 }
 
 
-@media screen and (min-width:796px) {
+@media screen and (min-width:769px) {
     .studio {
-        padding: 246px 0 90px;
+        padding: 246px 4% 90px;
     }
 
     .studio_title {
@@ -1223,23 +1234,22 @@ studio
     }
 
     .studio_base {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(364px, 1fr));
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(364px, 1fr));
         gap: 29px;
-        /* margin: 151px 7.5vw 0;
-        flex-wrap: wrap; */
-        transform: none !important;
-        width: 100% !important;
+        max-width: 1150px;
+        margin: 182px auto 0;
+        padding: 0;
     }
 
     .studio_wrap {
-        /* height: auto; */
         width: 100% ;
         max-width: 364px;
+        min-width: 0;
         margin: 0 auto;
     }
 
-    .swiper-studio .swiper-pagination {
+    .slick-dots {
         display: none;
     }
 
@@ -1266,9 +1276,6 @@ studio
     }
 
     .studio_btn {
-        /* width: 267px; */
-        /* height: 43px; */
-        /* flex-shrink: 0; */
         margin-top: 21px;
     }
 }
@@ -1315,16 +1322,11 @@ trainer
     object-position: 50% 15%;
 }
 
-.trainer_pic:nth-of-type(2) {
-    object-position: 50% 80%;
-    /* これがなぜか効かない。本当は50% 20%にしたい */
-}
 
 .trainer_name {
     font-size: clamp(2rem, 5.3vw, 2.4rem);
     font-weight: 600;
     line-height: 30px;
-    /* 150% */
     letter-spacing: 1.2px;
     margin-top: 30px;
 }
@@ -1338,7 +1340,7 @@ trainer
 
 .trainer_text {
     font-size: 1.6rem;
-    font-weight: 500;
+    /* font-weight: 500; */
     line-height: 1.5;
     letter-spacing: 0.8px;
     margin-top: 16px;
@@ -1399,7 +1401,6 @@ trainer
     }
 }
 
-
 /* ===========================
 faq
 ============================= */
@@ -1424,7 +1425,6 @@ faq
 }
 
 .faq_inner {
-    /* display: flex; */
     padding: 21px 15px;
     justify-content: space-between;
     align-items: flex-start;
@@ -1460,14 +1460,6 @@ faq
     color: var(--primary-orange);
 }
 
-/* .faq_btnOpen {
-    margin-top: -12px;
-}
-
-.faq_btnClose {
-    margin-top: -18px;
-} */
-
 .faq_btnOpen,
 .faq_btnClose {
     position: absolute;
@@ -1479,13 +1471,13 @@ faq
     height: auto;
 }
 
-/* 初期状態：マイナス（閉じるボタン）を隠しておく */
+/* 初期状態：閉じるボタンを隠しておく */
 .faq_btnClose {
     opacity: 0;
-    transform: rotate(-90deg); /* 少し回転させておくと動きが綺麗 */
+    transform: rotate(-90deg); 
 }
 
-/* 開いた時（JSで親に .open クラスを付与すると想定） */
+/* 開いた時 */
 .faq_inner.open .faq_btnOpen {
     opacity: 0;
     transform: translate(-50%,0%)rotate(90deg);
@@ -1499,8 +1491,6 @@ faq
 .faq_answer {
     display: none;
 }
-
-/* ここの高さの設定の仕方。どうやって計算すればいい？ */
 
 @media screen and (min-width:796px) {
     .faq {
@@ -1530,11 +1520,7 @@ faq
     .faq_question {
         gap: 16px;
     }
-
 }
-
-
-
 
 /* ================================
 cv
@@ -1543,7 +1529,6 @@ cv
     background: linear-gradient(107deg, #FF6749 12.32%, #FF8763 71.58%);
     padding: 45px 9.3% 40px;
     color: var(--primary-white, #FFF);
-
 }
 
 .cv_title {
@@ -1553,12 +1538,16 @@ cv
     letter-spacing: 2.08px;
 }
 
-.cv_subtitle {
+.cv_subtitle_sp {
     font-size: clamp(1.6rem, 4.2vw, 2.6rem);
     font-weight: 700;
     line-height: 1;
     letter-spacing: 0.32px;
     margin-top: 5px;
+}
+
+.cv_subtitle_pc{
+    display: none;
 }
 
 .pcBr {
@@ -1599,9 +1588,14 @@ ul li::marker {
     background-color: #FFF;
     border-radius: 50%;
     z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 少し弾む動き */
 }
 
-.cv_btnOpenSp {
+.cv_btnSp:hover {
+    transform: scale(1.1); /* 1.1倍に大きくする */
+}
+
+.cv_btnImgSp {
     position: absolute;
     z-index: 1;
     left: 30%;
@@ -1611,10 +1605,8 @@ ul li::marker {
     transform: rotate(42.608deg);
 }
 
-/* ここの指定あってますか？特にtop/leftは見た目でOK?ただ小さくした時に円が潰れる。 */
-
 .cv_btnPc,
-.cv_btnOpenPc {
+.cv_btnImgPc {
     display: none;
 }
 
@@ -1638,14 +1630,8 @@ ul li::marker {
         letter-spacing: 1.72px;
     }
 
-    .cv_subtitle {
-        font-size: clamp(1.6rem, 4.2vw, 2.6rem);
-        font-weight: 600;
-        line-height: 2;
-    }
-
-    .pcBr {
-        display: block;
+    .cv_subtitle_sp{
+        display: none;
     }
 
     .cv_textWrap {
@@ -1653,17 +1639,16 @@ ul li::marker {
         justify-content: space-between;
         margin-top: 12px;
     }
-
+    
     .cv_container {
         margin: 0;
     }
-
+    
     .cv_lead {
         font-size: clamp(2rem, 1.1vw, 1.6rem);
         line-height: 2;
     }
-
-
+    
     .cv_btnPc {
         position: relative;
         display: inline-block;
@@ -1673,9 +1658,14 @@ ul li::marker {
         border-radius: 50%;
         z-index: 1;
         margin-top: -52px;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 少し弾む動き */
     }
 
-    .cv_btnOpenPc {
+    .cv_btnPc:hover {
+        transform: scale(1.1); /* 1.1倍に大きくする */
+    }
+    
+    .cv_btnImgPc {
         display: block;
         position: absolute;
         z-index: 1;
@@ -1685,24 +1675,30 @@ ul li::marker {
         height: 24px;
         transform: rotate(42.608deg);
     }
-
-    /* 矢印がスクロールした時に上に重なってしまう。 */
-
+    
     .cv_btnSp,
-    .cv_btnOpenSp {
+    .cv_btnImgSp {
         display: none;
+    }
+    
+    .cv_subtitle_pc {
+        display: block;
+        font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+        font-weight: 600;
+        line-height: 1.8;
+        margin-top: -80px;
+    }
+
+    .pcBr {
+        display: block;
     }
 
     .cv_text {
         font-size: 1.6rem;
         font-weight: 600;
         line-height: 1.5;
-        margin: 0 -15.7vw 0 0;
+        margin-top: 20px;
     }
-
-    /* ここの縦ラインが揃わない 
-    そもそも文字組のペアを変更してdisplay flexをかけるべき？*/
-
 }
 
 
@@ -1720,7 +1716,6 @@ footer
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     padding-right: 121px;
-    /* ここの余白の指定方法 */
 }
 
 .footer_logo img {
@@ -1756,5 +1751,4 @@ footer
     .copy {
         text-align: end;
     }
-
 }
