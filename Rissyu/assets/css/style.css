@@ -2,7 +2,6 @@
 /* ===============
 common
 ================ */
-
 :root{
     --primary-white:#FBF8F8;
     --primary-black1:#2D2D2D;
@@ -22,18 +21,18 @@ body{
         'Lora';
     font-style: normal;
     color: var(--primary-black1,#2D2D2D);
-    font-size: 1.4rem;
+    font-size: clamp(1.4rem, 1.2rem + 0.5vw, 1.6rem);
     font-weight: 400;
     letter-spacing: 1.28px;
-    line-height: 1.7em;
+    line-height: 2em;
 }
 
 p{
     font-family: "Noto Serif JP";
-    font-size: 1.4rem;
+    font-size: clamp(1.4rem, 1.2rem + 0.5vw, 1.6rem);
     font-style: normal;
     font-weight: 400;
-    line-height: 1.16;
+    line-height: 2;
     letter-spacing: 0.96px;
 }
 
@@ -53,12 +52,48 @@ h1{
 }
 
 html, body {
-  overflow-x: hidden;
+    overflow-x: hidden;
+}
+
+/* ふわっと出す */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px); /* 少し下から出す */
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+/* JavaScriptでこのクラスを使用*/
+.fade-in.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* セクションの棒をすっと出す */
+.vertical_line {
+    height: 0; /* 最初は高さ0 */
+    opacity: 0;
+    transition: height 1s ease 0.5s, opacity 0.5s ease 0.5s; /* 少し遅れて開始 */
+}
+
+/* 親要素や自身がis-activeになった時 */
+.vertical_line.is-active {
+    height: 40px; /* 元の高さ */
+    opacity: 1;
+}
+
+/* ぼかし */
+.reveal-text {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 1.5s ease, filter 1.5s ease;
+}
+
+.reveal-text.is-active {
+    opacity: 0.1;
+    filter: blur(0);
 }
 
 
-
-/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+/*==============================
 header
 ================================ */
 
@@ -75,8 +110,10 @@ header
 
 .header_topic{
     display: flex;
+    align-items: flex-end;
     gap: 10px;
 }
+
 
 .logo_sub{
     font-size: 1.2rem;
@@ -85,23 +122,27 @@ header
 }
 
 .nav {
-  background-color: var(--primary-white, #fafafa);
-  width: 160px;
-  height: 349px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 100;
-  transform: translateX(100%); /* 最初は画面外 */
-  transition: 0.4s ease;
-  /* transition: transform 0.4s ease; */
+    background-color: var(--primary-white, #fafafa);
+    width: 160px;
+    height: auto;
+    padding-bottom: 40px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    transform: translateX(100%); /* 最初は画面外 */
+    transition: 0.4s ease;
 }
 
-/* .nav.active */
-/* ここがうまく作動していない */
 
 .nav.active {
-  transform: translateX(0); /* 画面に出す */
+    transform: translateX(0); /* 画面に出す */
+}
+
+.menu_btn {
+    position: relative;
+    z-index: 2; /* メニューよりは下、でも他のコンテンツよりは上 */
+    cursor: pointer;
 }
 
 .nav_header{
@@ -138,7 +179,6 @@ header
 }
 
 @media screen and (min-width:1024px) {
-/* ここのレスポンシブの幅を変えたけどOKですか？ */
     .menu_btn,
     .nav_header{
         display: none;
@@ -227,7 +267,7 @@ fv
 
 .sub_copy{
     margin-top: 14px;
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
 }
 .fv{
     background-image: radial-gradient(circle farthest-side at 25% 60%, #d1a6ad, #fbf8f8);
@@ -276,14 +316,11 @@ fv
         }
 }
 /* pc1024px */
-/* レスポンシブの時に少しタイトルが改行されてしまう。どうしたらいいか？ */
 
 /* ==========================
 about
 ============================ */
-
 .section--about {
-  /* position: relative; */
   background: #fff;
 }
 
@@ -302,7 +339,7 @@ about
     margin-top: -10px;
 }
 
-.deco_concept{
+.deco_concept {
     color: var(--primary-black1,#2d2d2d);
     text-align: center;
     font-family: "Great Vibes";
@@ -310,13 +347,22 @@ about
     font-weight: 400;
     letter-spacing: 3.84px;
     margin-top: -26px;
-    opacity: 0.5;
+    opacity: 0; /* 最初は透明 */
     z-index: 2;
     display: flex;
     justify-content: flex-end;
     margin-right: 5%;
     position: relative;
-    }
+    
+    /* 手書き風アニメーションの設定 */
+    clip-path: inset(0 100% 0 0); /* 最初は右から100%隠す */
+    transition: clip-path 2s ease-in-out, opacity 1s ease;
+}
+
+.deco_concept.is-active {
+    opacity: 0.5; /* 最終的な透明度 */
+    clip-path: inset(0 0 0 0); /* 全部表示する */
+}
 
 .deco_concept::before {
   content: "";
@@ -325,14 +371,18 @@ about
   right: 0;
   width: 100px;
   height: 100px;
-  background-image: url("/assets/images/concept_deco2.png");
+  background-image: url("../images/concept_deco2.png");
   background-size: cover;           /* 画像を要素のサイズに合わせて拡縮 */
   background-repeat: no-repeat;
   background-position: center center;
   pointer-events: none;              /* マウスイベントの邪魔にならないように */
-  z-index: 0;                         /* 要素コンテンツより背面に */
+  z-index: -1;                         /* 要素コンテンツより背面に */
 }
-/* 擬似要素もう一回考え直す！ */
+
+.deco_concept.is-active::before {
+    opacity: 1;
+    transform: scale(1);
+}
 
 
 .about_lead{
@@ -375,26 +425,6 @@ about
     object-fit: cover;
 }
 
-
-/* .about_item{
-    display: flex;
-    flex-shrink: 0;
-    white-space: nowrap;
-        
-    &:nth-of-type(1) {
-        animation: marquee01 80s -40s linear infinite running;
-    }
-    
-    &:nth-of-type(2) {
-        animation: marquee02 80s linear infinite running;
-    }
-} 
-
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-} */
-
 .about_item {
   display: flex;
   flex-shrink: 0;
@@ -403,7 +433,6 @@ about
   animation: slow-marquee 60s linear infinite;  /* 60秒かけてゆっくり動くように */
 }
 
-/* もし nth-of-type を使って遅延をずらしたいなら： */
 .about_item:nth-of-type(1) {
   animation-delay: 0s;
 }
@@ -419,8 +448,6 @@ about
     transform: translateX(-100%);  /* コンテンツ全体の幅分左へ移動 */
   }
 }
-
-
 
 @media screen and (min-width:1024px) { 
     .about_photo_main{
@@ -481,7 +508,6 @@ about
         height: 200px;
         object-fit: cover;
     }
-    /* ここに流れる画像のものをどうするか検討 */
 }
 
 /* ===================
