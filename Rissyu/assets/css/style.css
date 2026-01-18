@@ -67,19 +67,33 @@ html, body {
   transform: translateY(0);
 }
 
-/* セクションの棒をすっと出す */
-.vertical_line {
-    height: 0; /* 最初は高さ0 */
+/* セクションの縦棒の設定 */
+.c-line--vertical {
+    display: block; 
+    width: 1px;
+    height: 0px;
+    background-color: #94898a; 
+    position: absolute; 
+    left: 50%;
     opacity: 0;
-    transition: height 1s ease 0.5s, opacity 0.5s ease 0.5s; /* 少し遅れて開始 */
+    transform: translateX(-50%);
+    top: 114px;
+    z-index: 2; 
+    /* transform-origin: top; */
+    transition: height 1.5s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.5s ease;
 }
 
-/* 親要素や自身がis-activeになった時 */
-.vertical_line.is-active {
-    height: 40px; /* 元の高さ */
+/* 発火時：translateX(-50%)を維持しつつ scaleY(1) にする */
+.c-line--vertical.is-active {
+    opacity: 1;
+    height: 60px;
+}
+
+/* 発火用クラス */
+.c-line--vertical.is-active {
+    transform: scaleY(1);
     opacity: 1;
 }
-
 /* ぼかし */
 .reveal-text {
     opacity: 0;
@@ -90,6 +104,17 @@ html, body {
 .reveal-text.is-active {
     opacity: 0.1;
     filter: blur(0);
+}
+
+@media screen and (min-width:769px) {
+    /* セクションの縦棒の設定 */
+    .c-line--vertical {
+        top: 184px;
+    }
+    
+    .c-line--vertical.is-active {
+        height: 140px;
+    }
 }
 
 
@@ -372,11 +397,11 @@ about
   width: 100px;
   height: 100px;
   background-image: url("../images/concept_deco2.png");
-  background-size: cover;           /* 画像を要素のサイズに合わせて拡縮 */
+  background-size: cover; 
   background-repeat: no-repeat;
   background-position: center center;
   pointer-events: none;              /* マウスイベントの邪魔にならないように */
-  z-index: -1;                         /* 要素コンテンツより背面に */
+  z-index: -1;        
 }
 
 .deco_concept.is-active::before {
@@ -417,7 +442,6 @@ about
     padding-left: 20px;
     flex-shrink: 0;
 }
-
 
 .about_photo{
     width: 100%;
@@ -516,6 +540,8 @@ point
 .point{
     background: linear-gradient(180deg, #FBF8F8 0%, #DEDEDE 100%);
     padding: 33px 0 65px ;
+    position: relative;
+    z-index: 1;
 }
 
 .point_titleEn {
@@ -540,16 +566,6 @@ point
     margin-top: -17px;
  } 
 
-.vertical_line {
-  display: flex;
-  width: 1px;
-  height: 40px;
-  background-color: #94898a; 
-  vertical-align: middle;
-  margin: 0 auto;
-  z-index: 1;
-  /* ここの線を上に出す方法、また動きのつけ方 */
-}
 
 /* =====COMMON======== */
 .deco_eyelist,
@@ -608,9 +624,11 @@ point
 /* ====EYELIST========= */
  .point_eyelist{
     background-color: var(--primary-pink, #DEC8C9);
-    margin-top: -20px;
+    margin-top: 20px;
     padding-top: 21px;
     padding-bottom: 22px;
+    position: relative;
+    z-index: 1;
  }
 
  .point_lead_eyelist{
@@ -637,29 +655,34 @@ point
  }
 
  .btn_menu {
-  display: flex;                       /* 横並び */
-  justify-content: space-between;      /* 左右に配置 */
+  display: flex;                       
+  justify-content: space-between; 
   align-items: center;
-  width: 220px;                        /* 横幅（調整可） */
+  width: 220px;   
   padding: 4px 0;
   font-size: 1.6rem;
   font-weight: 600;
-  border-bottom: 2px solid #2d2d2d;       /* 下線をつける */
-  transition: 0.3s;                    /* ホバー時の動き */
+  border-bottom: 2px solid #2d2d2d;
+  transition: 0.3s;
   margin: 28px 4% 22px auto;
 }
 
-.btn-menu:hover {
-  opacity: 0.7;  
+.btn_menu:active{
+ transform: scale(0.97);
+ transition: 0.3s;
 }
 
-.btn-menu .arrow {
+.btn_menu:hover {
+  opacity: 0.8;  
+}
+
+.btn_menu img {
   font-size: 20px;
   transition: transform 0.3s;
 }
 
-.btn-menu:hover .arrow {
-  transform: translateX(5px);          /* 矢印が右に動く */
+.btn_menu:hover img{
+  transform: translateX(8px);   
 }
 
  /* =======SALON======== */
@@ -688,13 +711,12 @@ point
     .point_title{
         margin-top: -4px;
     }
-/* 
+
      .point_eyelist{
-        margin-top: 67px;
-        background-color: var(--primary-pink, #DEC8C9);
+        margin-top: 100px;
         width: calc(100vw - 9.6%);
         padding-bottom: 62px;
- } */
+ }
 
  /* ====common=PC===== */
     .deco_eyelist,
@@ -822,7 +844,6 @@ point
     .point_salon_pic_Pc{
         margin: 227px 0 0 auto;
         flex-shrink: 0;
-        /* width: 51.4%;      */
     }
 
     .point_salon_photo{
@@ -830,17 +851,6 @@ point
         height: auto;
         object-fit: cover;
     }
-
-    .point_lead_salon{
-        width: 35.8%;
-    }
-
-    /* .point_background{
-        background: linear-gradient(to top, #dedede, #FBF8F8);
-        padding-bottom: 33px;
-    } */
-
-   
 }
 
 /* ===================

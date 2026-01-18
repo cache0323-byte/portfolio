@@ -12,6 +12,27 @@ $(window).on('scroll load', function() {
   });
 });
 
+// 共通のスクロール発火設定
+const scrollObserve= () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-active');
+      }
+    });
+  }, { 
+    threshold: 0.2, // 20%見えたら発火
+    rootMargin: "0px 0px -50px 0px" // 画面下から50px手前で発火（微調整用）
+  });
+
+  // 修正箇所：クラス名なのでドットが必要
+  const targets = document.querySelectorAll('.js-scroll-trigger');
+  targets.forEach(el => observer.observe(el));
+};
+
+// 読み込み完了時に実行
+window.addEventListener('load', scrollObserve);
+
 // ハンバーガーメニュー
 $(function () {
   // 開くボタン
