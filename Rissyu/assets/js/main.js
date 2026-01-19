@@ -42,22 +42,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   //  Splide（お客様の声スライダー）
-  const voiceSlider = document.querySelector('#voice-carousel');
-  if (voiceSlider) {
-      new Splide('#voice-carousel', {
-          type   : 'loop',
-          perPage: 1,
-          autoplay: true,
-          interval: 3000, 
-          pauseOnHover: false,
-          arrows: false,
-          
-          mediaQuery:'min',
-          breakpoints :{
-            769:{
-            destroy:true,
-            pagination:false,
+const voiceSlider = document.querySelector('#voice-carousel');
+if (voiceSlider) {
+    new Splide('#voice-carousel', {
+        type: 'loop',
+        perPage: 3,  // PC表示は3枚
+        gap: '30px',
+        autoplay: true,
+        interval: 5000,  // 5秒に変更（読む時間を確保）
+        speed: 800,  // スライド速度を800msに（デフォルトは400ms）
+        pauseOnHover: true,  // ホバー時に一時停止
+        pauseOnFocus: true,  // フォーカス時に一時停止
+        arrows: true,
+        pagination: true,
+        
+        breakpoints: {
+            1023: {
+                perPage: 1,  // モバイルは1枚
+                gap: '0px',
+                interval: 4000,  // モバイルは4秒
+                speed: 600,
+                arrows: true,
+                pagination: true,
             }
-          }
-      }).mount();
-  }
+        }
+    }).mount();
+}
