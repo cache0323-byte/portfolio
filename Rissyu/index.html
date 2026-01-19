@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +17,15 @@
     <!-- web font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400..700&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400..700&family=Noto+Serif+JP:wght@200..900&display=swap"
+        rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" href="assets/css/destyle.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/slick-theme.css">            
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <div class="container">
         <header class="header">
@@ -63,12 +66,12 @@
                         </div>
                         <div class="fv_copy">
                             <h2 class="catchcopy">今より、<br>
-                            少し美しい私へ</h2>
+                                少し美しい私へ</h2>
                             <p class="sub_copy">
-                            大阪市此花区のプライベートマツエクサロン。<br>
-                            さまざまなデザインから、あなたに似合う目元を。<br>
-                            信頼できる技術で、自然に、美しく。<br>
-                            “似合う”に出会う時間を、あなたに。
+                                大阪市此花区のプライベートマツエクサロン。<br>
+                                さまざまなデザインから、あなたに似合う目元を。<br>
+                                信頼できる技術で、自然に、美しく。<br>
+                                “似合う”に出会う時間を、あなたに。
                             </p>
                         </div>
                     </div>
@@ -87,7 +90,7 @@
                                     </h3>
                                 </div>
                                 <p class="about_text">静かな住宅街に佇む、完全予約制のプライベートサロン。
-                                    <br >1対1の丁寧な施術で、リラックスしながら
+                                    <br>1対1の丁寧な施術で、リラックスしながら
                                     <br class="pcBr">“なりたい自分”に近づける場所。
                                     <br>通いやすい価格で、まつげエクステ・ラッシュリフト・アイブロウカットなど、
                                     <br class="spBr">目元のトータルケアをあなたのペースで。
@@ -140,7 +143,6 @@
                     </div>
                 </section>
 
-
                 <section id="point" class="point">
                     <div class="point_container">
                         <h2 class="point_titleEn">POINT</h2>
@@ -153,10 +155,11 @@
                                         <div class="point_lead_eyelist">
                                             <h3 class="deco_eyelist">Eyelist</h3>
                                             <h4>熟練の手が魅せる、<br>
-                                            上質な“私だけの目もと</h4>
+                                                上質な“私だけの目もと</h4>
                                         </div>
                                         <div class="point_eyelist_pic_Sp fade-in">
-                                            <img class="point_eyelist_photo " src="assets/images/point1.jpg" alt="マツエク施術中">
+                                            <img class="point_eyelist_photo " src="assets/images/point1.jpg"
+                                                alt="マツエク施術中">
                                             <p class="point_eyelist_deco">EYELIST</p>
                                         </div>
                                         <p class="point_eyelist_txt">
@@ -202,7 +205,7 @@
                                         <div class="point_lead_salon">
                                             <h3 class="deco_salon">Salon</h3>
                                             <h4>静かな個室で、<br>
-                                            優雅なリラクゼーションの時</h4>
+                                                優雅なリラクゼーションの時</h4>
                                         </div>
                                         <div class="point_salon_pic_Sp fade-in">
                                             <img class="point_salon_photo" src="assets/images/point3.jpg" alt="サロン">
@@ -251,30 +254,35 @@
                                 <h2>VOICE</h2>
                                 <h3>お客様の声</h3>
                             </div>
-                            <div class="voice_slider">
-                                <div class="voice_box">
-                                    <p class="voice_txt">
-                                        マツエクはいつも継続してつけないのに、ここは3回連続で三週間おきに通っています。Dカールのカール具合と仕上がりに満足しているからです。また伺います。
-                                    </p>
-                                    <p class="voice_name">
-                                        30代 女性
-                                </p>
-                                </div>
-                                <div class="voice_box">
-                                    <p class="voice_txt">
-                                        マツエクはいつも継続してつけないのに、ここは3回連続で三週間おきに通っています。Dカールのカール具合と仕上がりに満足しているからです。また伺います。
-                                    </p>
-                                    <p class="voice_name">
-                                        40代 女性
-                                </p>
-                                </div> 
-                                <div class="voice_box">
-                                    <p class="voice_txt">
-                                        マツエクはいつも継続してつけないのに、ここは3回連続で三週間おきに通っています。Dカールのカール具合と仕上がりに満足しているからです。また伺います。
-                                    </p>
-                                    <p class="voice_name">
-                                        50代 女性
-                                </p>
+                            <div class="voice_slider splide" id="voice-carousel">
+                                <div class="splide__track">
+                                    <div class="splide__list">
+
+                                        <div class="voice_box splide__slide">
+                                            <p class="voice_txt">
+                                                マツエクはいつも継続してつけないのに、ここは3回連続で三週間おきに通っています。Dカールのカール具合と仕上がりに満足しているからです。また伺います。
+                                            </p>
+                                            <p class="voice_name">
+                                                30代 女性
+                                            </p>
+                                        </div>
+                                        <div class="voice_box splide__slide">
+                                            <p class="voice_txt">
+                                                マツエクはいつも継続してつけないのに、ここは3回連続で三週間おきに通っています。Dカールのカール具合と仕上がりに満足しているからです。また伺います。
+                                            </p>
+                                            <p class="voice_name">
+                                                40代 女性
+                                            </p>
+                                        </div>
+                                        <div class="voice_box splide__slide">
+                                            <p class="voice_txt">
+                                                マツエクはいつも継続してつけないのに、ここは3回連続で三週間おきに通っています。Dカールのカール具合と仕上がりに満足しているからです。また伺います。
+                                            </p>
+                                            <p class="voice_name">
+                                                50代 女性
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -309,7 +317,10 @@
                             <h3>アクセス</h3>
                         </div>
                         <div class="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15629.270118411301!2d135.43204611918642!3d34.67633714446468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1755837570053!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15629.270118411301!2d135.43204611918642!3d34.67633714446468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1755837570053!5m2!1sja!2sjp"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                             <div class="access_wrap">
                                 <address>
                                     住所<br>
@@ -317,7 +328,9 @@
                                 </address>
                                 <div class="access_guide">
                                     <p class="access_guide_title">道案内</p>
-                                    <p class="access_guide_txt">駅を出たら右の階段を降りてすぐの信号を渡って右へ直進し、右側に踏み切りがある横断歩道を渡り左折し直進して頂くと右側にパチンコマルハンがあり、隣のマンションの横の道を左折、直進し突き当たり左側に当店ございます。</p>
+                                    <p class="access_guide_txt">
+                                        駅を出たら右の階段を降りてすぐの信号を渡って右へ直進し、右側に踏み切りがある横断歩道を渡り左折し直進して頂くと右側にパチンコマルハンがあり、隣のマンションの横の道を左折、直進し突き当たり左側に当店ございます。
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -354,8 +367,9 @@
                                 <div class="footer_btnWrap">
                                     <a class="footer_btn" href="">
                                         <img src="assets/images/LINE_icon.png" alt="">
-                                        <p class="footer_btn_txt">LINEよりお問い合わせ</p></a>
-                                </div>                    
+                                        <p class="footer_btn_txt">LINEよりお問い合わせ</p>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="footer_logoWrap">
@@ -363,16 +377,16 @@
                                 <h1 class="footer_logo">Rissyu</h1>
                                 <p class="footer_logoSub">大阪市此花区<br>マツエクサロン</p>
                             </div>
-                            <p class="copy"><small>&copy;2025 Eyelash Salon Rissyu. <br class="spBr">All rights reserved.</small></p>
+                            <p class="copy"><small>&copy;2025 Eyelash Salon Rissyu. <br class="spBr">All rights
+                                    reserved.</small></p>
                         </div>
                     </div>
                 </div>
             </footer>
         </main>
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <!-- <script src="assets/js/script.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
