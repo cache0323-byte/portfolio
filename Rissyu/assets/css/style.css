@@ -79,7 +79,6 @@ html, body {
     transform: translateX(-50%);
     top: 114px;
     z-index: 2; 
-    /* transform-origin: top; */
     transition: height 1.5s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.5s ease;
 }
 
@@ -603,7 +602,6 @@ point
     font-weight: 400;
     letter-spacing: 3.84px;
     margin-top: clamp(-26px, -6vw, -50px);
-    /* ここのサイズを要確認 */
     z-index: 2;
  }
 
@@ -882,6 +880,20 @@ menu
     line-height: 0.5;
     letter-spacing: 4.48px;
     z-index: 1; 
+}
+/* セクションの縦棒の設定 */
+#menu .c-line--vertical {
+    display: block; 
+    width: 1px;
+    height: 0px;
+    background-color: #94898a; 
+    position: absolute; 
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    top: 114px;
+    z-index: 2; 
+    transition: height 1.5s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.5s ease;
 }
 
 .menu_wrap{
