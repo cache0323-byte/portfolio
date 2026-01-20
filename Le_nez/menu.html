@@ -69,7 +69,7 @@
         <main class="main">
             <article class="article">
                 <section id="menu" class="section--menu">
-                    <h2>
+                    <h2 class="aroma-fade">
                         <span class="section_deco">Nos Produits</span><br>
                         商品一覧
                     </h2> 
@@ -428,24 +428,5 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
-
-    <script>
-        $(function() {
-          $('.menu_tag').on('click', function() {
-            $('.menu_tag').removeClass('active');
-            $(this).addClass('active');
-
-            const target = $(this).data('target');
-            $('.menu_content').removeClass('active');
-            $('.content-' + target).addClass('active');
-            });
-        });
-
-        document.querySelector('.stick_top').addEventListener('click', function () {
-         window.scrollTo({ top: 0, behavior: 'smooth' }); // スムーズに上に戻る
-        });
-    
-    </script>
-
 </body>
 </html>

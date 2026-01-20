@@ -6,6 +6,18 @@
     margin-top: 36px;
 }
 
+/* 写真をふわっとする */
+.patissier_img.aroma-fade {
+    opacity: 0;
+    transform: scale(0.95); 
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.patissier_img.aroma-fade.is-active {
+    opacity: 1;
+    transform: scale(1.0);
+}
+
 .patissier_img{
     width: calc(300 / 375 * 100vw);
     height: auto;

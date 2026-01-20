@@ -2,7 +2,6 @@
 /* ===============
 common
 ================ */
-
 :root{
     --primary-white1:#f0f0f0;
     --primary-white2:#fafafa;
@@ -18,14 +17,14 @@ html{
 body{
     font-family: 
         'Lato',
-        'Noto Sans JP',;
-        font-style: normal;
-        color: var(--primary-black,#3e3a39);
-        background-color: var(--primary-white2,#fafafa);
-        font-size: 1.6rem;
-        font-weight: 400;
-        letter-spacing: 1.28px;
-        line-height: 1.7em;
+        'Noto Sans JP';
+    font-style: normal;
+    color: var(--primary-black,#3e3a39);
+    background-color: var(--primary-white2,#fafafa);
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 1.28px;
+    line-height: 1.7em;
 }
 
 img{
@@ -51,9 +50,20 @@ h2{
     margin: 28px auto 0;
 }
 
-h2.aroma-fade.is-active .section_deco {
-    transition-delay: 0.5s;
-    display: inline-block; /* transitionを効かせるため */
+/* 写真をふわっと出す：透明で少し下に */
+.aroma-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.aroma-fade.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aroma-fade.is-active.section_deco{
+    transition-delay:0.3s ;
 }
 
 h3{
@@ -63,8 +73,6 @@ h3{
     line-height: 1.7em;
     letter-spacing: 0.72px;
 }
-
-
 
 .section_deco{
     color: var(--brown, #937151);
@@ -76,7 +84,6 @@ h3{
     letter-spacing: 0.28px; 
     opacity: 0.3;
 }
-
 
 /* common Pc */
 @media screen and (min-width:769px) {
@@ -104,8 +111,6 @@ h3{
         opacity: 0.3;
     }
 }
-/* common pc */
-
 
 .btn{
     display: block;
@@ -134,7 +139,6 @@ h3{
     width: calc(100% - 4px);
     height: calc(100% - 4px);
     content: '';
-    /* -webkit-transition: all .3s; */
     transition: all .3s;
     border: 1px solid #FFFFFF;
   }
@@ -144,7 +148,7 @@ h3{
 }
 
 
-/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+/* =============================
 header
 ================================ */
 
@@ -187,9 +191,9 @@ header
   
 .stick_menu{
     position: fixed;
-        top: 4.5px;              /* 上からの距離 */
-        right: 9px;            /* 右からの距離 */
-        z-index: 1000;          /* 他の要素より上に表示 */      
+        top: 4.5px;
+        right: 9px; 
+        z-index: 1000;              
 }
 
 .stick_icon{
@@ -221,11 +225,17 @@ header
 }
 
 .nav_header{
+    margin: 0;
+    position: absolute;
+    top: 4.5px;
+    right: 9px;
     display: flex;
     flex-direction: column;
-    margin: 25px 32px 0px 174px;
     justify-content: center;
     align-items: center;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
 }
 
 .nav_btnClose{
@@ -235,17 +245,41 @@ header
     font-size: 1rem;
     line-height: 0;
     letter-spacing: 0.2px;
-    margin-top: 10px;
+    /* margin-top: 12px; */
+    order: 1;
 }
 
 .nav_btn{
     width: 16px;
     height: auto;
+    order: 2;
     margin: 0 auto;
 }
 
 .nav_list{
-    margin: 46px 42px 0 74px;
+    margin: 114px 35px 0 auto;
+}
+
+.nav_list a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav_list a::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-black); 
+    transition: width 0.3s;
+}
+
+.nav_list a:hover::after {
+    width: 100%;
 }
 
 .nav_item{
@@ -257,6 +291,10 @@ header
     text-align: right;
     line-height: 2.8;
     letter-spacing: 1.28px;
+}
+
+.nav_item img{
+    margin:10px auto;
 }
 
 .background{
@@ -271,7 +309,6 @@ header
     aspect-ratio: 135/74;
 }
 
-/* .nav.active */
 .nav.active{
     transform: translateX(0);
     transition: transform 0.4s;
@@ -305,13 +342,10 @@ header
         letter-spacing: 1.28px;
     }
     
-    .stick_menu,
-    .nav_header {
+    .nav_header,
+    .stick_menu{
         width: 72px;
         height: 72px;
-      }
-    
-    .stick_menu{
         top: 11px;
         right: 26px;     
     }
@@ -337,16 +371,13 @@ header
     .nav_header{
         display: flex;
         flex-direction: column;
-        margin: 25px 32px 0px 174px;
+        /* margin: 25px 32px 0px 174px; */
     }
 }
-/* pc769px */
-
 
 /*============================
 footer
 ==============================*/ 
-
 .footer_container {
     position: relative;
     width: 100%;
@@ -356,15 +387,15 @@ footer
     background-position: center;
     color: white;
     overflow: hidden;
-  }
-  
-  .footer_container::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* ←黒くするポイント */
-    z-index: 1;
-  }
+}
+
+.footer_container::before {
+content: "";
+position: absolute;
+inset: 0;
+background-color: rgba(0, 0, 0, 0.7); /* ←黒くするポイント */
+z-index: 1;
+}
 
 .footer_topic{
     color:var(--primary-white1,#F0F0F0);
@@ -375,6 +406,28 @@ footer
     z-index: 2; /* オーバーレイより上に表示 */
     display: flex;
     justify-content: center;
+}
+
+.footer_topic a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer_topic a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-white1);
+    transition: width 0.3s;
+}
+
+.footer_topic a:hover::after {
+    width: 100%; 
 }
 
 .footer_topic1{
@@ -414,6 +467,7 @@ footer
     height: 56px;
     justify-content: center;
     flex-shrink: 0;
+    transition: background-color 0.4s, color 0.4s, transform 0.2s;
 }
 
   .footer_btn::before {
@@ -429,7 +483,17 @@ footer
   }
   
   .footer_btn:hover {
-    opacity: 0.8;
+    opacity: 1;
+    background-color: #F0f0f0;
+    color: var(--primary-black);
+}
+.footer_btn:hover img {
+    filter: invert(20%) brightness(30%); 
+    transition: filter 0.4s;
+}
+
+.footer_btn:hover::before {
+    border-color: var(--primary-black);
 }
 
 .footer_logo{
@@ -470,7 +534,7 @@ footer
     }
 
     .footer_topic1,
-    .footer_topic2,{
+    .footer_topic2{
         width: 156px;
         margin-top: 63px;
         gap: 24px;

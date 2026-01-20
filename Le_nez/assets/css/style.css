@@ -11,10 +11,17 @@ fv
     margin: 0 auto;
 }
 
-.fv img{
+.fv_container img{
     width: 100%;
     height: auto;
     object-fit: cover;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 1s ease, transform 6s ease-out;
+}
+.fv_container.is-visible img{
+    opacity: 1;
+    transform: scale(1.0);
 }
 
 .fv_lead{
@@ -25,6 +32,14 @@ fv
     letter-spacing: 0.48px;
     text-align: center;
     margin-top: 28px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 2.5s ease;
+}
+
+.fv_lead.is-visible{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media screen and (min-width:769px) {
@@ -75,12 +90,12 @@ sub
 }
 
 .sub_containerSp{
-    width: clamp(300px,60%, 638px);
-    min-height: 420px;
-    display: flex;
-    justify-content: center;
+    width: 90%;
+    min-height: 380px;
     margin: 35px auto;
     position: relative; 
+    display: flex;
+    justify-content: center;
   }
   
 .sub_wrap1 {
@@ -104,7 +119,9 @@ sub
     width: 182px;
     height: 182px;
     top: 203px;
-    right: 63px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-40%);
     overflow: hidden;
     position: absolute;
 }
@@ -120,18 +137,6 @@ sub
     flex-shrink: 0;
 }
 
-.background_box{
-    background-image: url('../images/bg1.png');
-    width: 220px;
-    height: 121px;
-    opacity: 0.05;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 0;
-    top: 266px;
-  }
-
   @media screen and (min-width:769px) {
     .sub_containerSp{
         display: none;
@@ -141,6 +146,7 @@ sub
     .sub_containerPcDown{
         display: block;
         position: relative;
+        padding-bottom: 20px;
     }
     
     .sub_containerPcUp{
@@ -148,7 +154,9 @@ sub
     }
 
     .sub_containerPcDown{
-        min-height: 400px;
+        min-height: auto;
+        height: 300px;
+        position: relative;
     }
 
     #sub h3{
@@ -173,9 +181,12 @@ sub
         height: clamp(136px, 80vh,406px);
         aspect-ratio: 349/406;
         top: 194px;
-        right: 13%;
+        right: auto;
+        left: 60%;
     }
     .sub_wrap3{
+        left: auto;
+        transform: none;
         width: clamp(182px, 33vw, 460px);
         height: auto;
         top: -76px;
@@ -183,15 +194,18 @@ sub
     }
     
     .background_box{
-        background-image: url('../images/bg1.png');
-        width: clamp(220px,38vw,518px);
-        height: clamp(121px,38vh,284px);
-        opacity: 0.05;
+        background-image: url('../images/bg01.png');
+        width: 28vw;
+        aspect-ratio: 1360/708;
+        height: auto;
+        opacity: 0.1;
+        left: 14%;
+        bottom: 10px;
+        top: auto;
         background-size: contain;
         background-repeat: no-repeat;
-        margin: -154px auto 22px 9%;
+        position: absolute;
       }
-      /* ここの余白が大きくなるけどいいのかな？レスポンシブで動かした時の下の部分 */
   }
 
 /* ===========================
@@ -201,6 +215,7 @@ about
 .section--about{
     background: #F8F8F8;
     padding:28px 0 48px;
+    margin-top: 56px;
 }
 
 .about_container{
@@ -213,6 +228,11 @@ about
 .about_img2{
     width: 200px;
     height: 200px;
+}
+
+.about_img2:hover{
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
 }
 
 .about_name{
@@ -267,13 +287,14 @@ about
     
     .section--about{
         padding:65px 0 62px; 
+        margin-top: 65px;
      }
     
     .about_wrap,
     .about_logo{
         display: flex;
         justify-content: space-around;
-        margin: 58px 9% 0 ;
+        margin: 79px 9% 0 ;
     }
 
     .about_container{
@@ -303,11 +324,11 @@ about
     .about_text1,
     .about_text2{
         width:100%;
-        margin: 31px 0 0;
+        margin-top: 31px;
     }
 
     .about_text2{
-        margin-right: 4%;
+        margin: 31px 4% 0 11%;
     }
 
     
