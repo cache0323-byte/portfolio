@@ -10,19 +10,19 @@ fv
     padding-bottom: 40px;
 }
 
-/* FVの左ライン (アニメーション) */
+/* FVの左ライン */
 .fv::before {
     content: "";
     position: absolute;
     left: 5.8%; 
     top: 0; 
     width: 1px;
-    height: 0; 
+    height: 0px; 
     background-color: var(--primary-black);
     transition: height 5s ease-out; 
 }
 
-/* FVの右ライン (アニメーション) */
+/* FVの右ライン */
 .fv::after {
     content: "";
     position: absolute;
@@ -34,13 +34,9 @@ fv
     transition: height 5s ease-out; 
 }
 
-@keyframes line-grow {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: var(--final-height, 100%)
-    }
+.animated-line.is-drawn::before,
+.animated-line.is-drawn::after {
+    height: 60%;
 }
 
 .fv_lead{

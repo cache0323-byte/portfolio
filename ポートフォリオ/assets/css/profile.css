@@ -25,8 +25,6 @@ header
     z-index: -1; 
 }
 
-
-
 /* ==================================
 fv
 =================================== */
@@ -133,6 +131,7 @@ myself
     aspect-ratio: 195/130;
     outline: 1px solid var(--primary-black);
     outline-offset: 4px;
+    margin: 0 auto;
 }
 
 .myself_nameWrap::after{
@@ -141,8 +140,7 @@ myself
     width: 100%;
     height: 1px;
     background-color: var(--primary-black);
-    margin: 51px auto 27px 0 ;
-    /* ここの数字確認 */
+    margin: 27px auto 27px 0 ;
 }
 
 
@@ -192,20 +190,17 @@ myself/pc
         display: flex;
         flex-direction: row-reverse;
         gap: 7.05vw;
-        margin: 58px 7.2vw 0 11.6vw;
-        padding: 0;
+        align-items: center;
+        width: auto;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .myself_img{
         width: 41.25vw;
         aspect-ratio: 561/374;
         flex-shrink: 0;
-    }
-    /* ここの画像が変形してしまう */
-
-    .myself_nameWrap::after{
-        margin: 51px auto 27px 0 ;
-        /* ここの数字確認 */
+        margin-top: 94px;
     }
 
     .myself_nameEn{
@@ -248,6 +243,11 @@ strength
     background-color: var(--primary-black);
     z-index: 1;
     transition: height 5s ease-out; 
+}
+
+.animated-line.is-drawn::before,
+.animated-line.is-drawn::after {
+    height: 60%;
 }
 
 .strength_container{
@@ -302,13 +302,12 @@ strength/pc
     .strength{
         padding-top: 84px;
         --final-height: 500px; /* CSS変数として定義 */
-        padding-bottom: 184px;
+        padding-bottom: 108px;
     }
 
     .strength::before {
         left: 6.1%; 
-        /* top: 196px;  */
-        /* ここの数字の出し方 */
+        top: 200px;
     }
 
     .strength_container{
@@ -316,9 +315,8 @@ strength/pc
     }
 
     .strength_inner{
-        margin: 47px 13.3% 0;
+        margin: 47px 0 0 50px;
     }
-    /* これどこにかかってる？ */
 
     .strength_wrap{
         margin-top: 4.48%;
@@ -330,6 +328,8 @@ strength/pc
 
     .strength_leadWrap{
         width: 21.7vw;
+        flex-shrink: 0;
+        position: relative;
         /* 必要に応じて justify-content も追加 */
     }
 
@@ -343,6 +343,8 @@ strength/pc
 
     .strength_text{
         margin-top: 0;
+        flex-grow: 1;
+        max-width: 600px;
     }
 }
 
@@ -469,17 +471,21 @@ interests
 }
 
 .interests_container{
-    margin: 75px 12.6vw 0;
+    margin: 75px auto 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap:20px;
+    width: auto;
+    overflow: hidden;
 }
 
 .interests_img{
-    width: 32vw;
+    width: 30vw;
     aspect-ratio: 1/1;
     object-fit: cover;
     overflow: hidden;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 /*------------------------

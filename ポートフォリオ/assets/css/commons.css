@@ -54,7 +54,6 @@ img{
 /* アニメーション開始時の状態を定義 (共通クラス) */
 .animated-line.is-drawn::before,
 .animated-line.is-drawn::after {
-    /* JavaScriptで is-drawn が付くと、この高さになる */
     height: var(--final-height, 100%); 
 }
 

@@ -12,7 +12,7 @@
 
     <!-- fabicon -->
     <!-- font -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Dancing+Script:wght@700&family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <!-- css -->
@@ -37,8 +37,6 @@
             </a>
         </nav>
     </header>
-    
-
     <article>
         <section class="fv animated-line">
             <h2 class="fv_lead">Clarity Sturucture The Human Code</h2>
@@ -247,33 +245,6 @@
             &copy;2026 SAKI SASAKI All Rights.
         </small>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedLines = document.querySelectorAll('.animated-line');
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = entry.target;
-                        
-                        // 1秒（1000ミリ秒）後にクラスを追加
-                        setTimeout(() => {
-                            target.classList.add('is-drawn');
-                        }, 1000); 
-
-                        observer.unobserve(target);
-                    }
-                });
-            }, {
-                rootMargin: '0px', 
-                threshold: 0.1 
-            });
-
-            animatedLines.forEach(line => {
-                observer.observe(line);
-            });
-        });
-    </script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>
