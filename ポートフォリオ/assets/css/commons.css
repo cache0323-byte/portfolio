@@ -40,7 +40,7 @@ body{
   bottom: 50%; /* 文字の中央ラインに合わせる */
   left: 100%;  /* タイトルの右端からスタート */
   transform: translateY(50%);
-  width: 60vw;
+  width: 70vw;
   height: 1px;
   background-color: var(--primary-black);
   margin-left: 2rem;
@@ -204,7 +204,23 @@ footer
     display: flex;
     justify-content: space-between;
     width: 300px;
-    border-bottom: solid 1px var(--primary-beige);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer_nav_list::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--primary-beige);
+    transition: width 0.8s ease;
+}
+
+.footer_nav_list:hover::after{
+    width: 100%;
 }
 
 .footer_nav_item{

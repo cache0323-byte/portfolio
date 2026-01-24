@@ -53,7 +53,7 @@ fv
     width: 64.8vw;
     aspect-ratio: 243/137;
     object-fit: cover;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: 0 auto 0 0;
 }
 
@@ -111,13 +111,13 @@ myself
 #myself .section_title::after {
   content: "";
   position: absolute;
-  bottom: 50%; /* 文字の中央ラインに合わせる */
-  left: 100%;  /* タイトルの右端からスタート */
+  bottom: 50%;
+  left: 100%; 
   transform: translateY(50%);
   width: 0;
   height: 0;
   opacity: 0;
-  margin-left: 0rem;
+  margin-left: 0;
 }
 
 .myself_container{
@@ -129,9 +129,11 @@ myself
 .myself_img{
     width: 52vw;
     aspect-ratio: 195/130;
+    object-fit: cover;
     outline: 1px solid var(--primary-black);
     outline-offset: 4px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .myself_nameWrap::after{
@@ -353,58 +355,66 @@ strength/pc
 career
 ===================== */
 .career{
-    padding: 50px 5.8vw 40px;
+    padding: 70px 5.8vw 40px;
     position: relative;
     overflow: hidden;
     --final-height: 560px;
 }
 
 .career_container{
-    margin-top: 88px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.career_container::before{
+    content: "";
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 100px;
+    width: 1px;
+    background-color: var(--primary-black);
+    z-index: 1;
 }
 
 #career .section_title{
     margin-left: 0;
 }
 
+.career_date{
+    width: 80px;
+    margin-top: 45px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 40px;
+    position: static;
+}
+
 .career_timeline{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     position: relative;
-    margin: 0;
-    overflow: hidden;
 }
 
-.career_date{
-    width: 55px;
-    flex-shrink: 0;
-    margin: 45px 32px 0 0;
-}
-
-.career_textwrap{
-    flex-grow: 1;
-    border-left: 1px solid var(--primary-black);
-    padding-left: 16px;
-}
-
-
-.career_inner {
-    position: relative;
-    display: flex;
-    width: 100%;
-}
-
-.career_inner::before {
+.career_date::after {
     content: "";
     position: absolute;
+    left: 80px;
+    top: 54px;
+    transform: translateX(-50%);
     width: 11px;
     height: 11px;
     background-color: #5f8b58;
     border-radius: 50%; 
     z-index: 2;
-    left: calc(86px + 1px - 5.5px); /* 86px(日付幅) + 1px(縦線の幅) - 5.5px(丸の幅の半分) */
-    top: 51px; 
+} 
+
+.career_inner{
+    flex-grow: 1;
+    padding-left: 40px;
+}
+
+.career_textwrap{
+    padding-left: 16px;
 }
 
 .career_lead{
@@ -423,19 +433,23 @@ career/pc
 @media screen and (min-width:769px) {
     .career{
         padding-top: 84px;
-        --final-height: 500px; /* CSS変数として定義 */
         padding-bottom: 184px;
     }
 
     .career_container{
-        margin: 17.4% 11.7vw 0 11.1vw;
+        margin: 17.4% 11.7vw 0 0;
     }
 
+    .career_container::before{
+        top: 100px;
+    }
+
+    .career_timeline{
+        margin-top: 100px;
+    }
       .career_textwrap{
         padding-left: 10.5%;
         max-width: 1000px;
-        /* max-width: 56.2vw; */
-        /* 文字数が多くなりすぎる。どうしたらいいのか？ */
     }
 
     .career_lead{
@@ -454,7 +468,7 @@ interests
     padding-top: 50px;
     position: relative;
     overflow: hidden;
-    --final-height: 345px; 
+    /* --final-height: 345px;  */
     padding-bottom: 40px;
 }
 
@@ -462,7 +476,7 @@ interests
     content: "";
     position: absolute;
     left: 5.8%;
-    top: 134px;
+    top: 94px;
     width: 1px;
     height: 0px;
     background-color: var(--primary-black);
@@ -471,9 +485,11 @@ interests
 }
 
 .interests_container{
+    padding: 0 12.8vw;
     margin: 75px auto 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap:20px;
     width: auto;
     overflow: hidden;
@@ -494,23 +510,21 @@ intereste/pc
 @media screen and (min-width:769px) {
     .interests{
         padding-top: 84px;
-        --final-height: 500px; /* CSS変数として定義 */
+        /* --final-height: 500px; */
         padding-bottom: 184px;
     }
 
     .interests::before{
         left: 6.1%;
-        top: 85px;
-        /* ここの数字の決め方。
-        また横線はどうするのか？ */
+        top: 160px;
     }
 
     .interests_container{
-        margin: 107px 8.4vw 0 12.86vw;
+        margin: 107px auto 0 ;
     }
 
     .interests_img{
-        width: 24.2vw;
+        width: 23vw;
         aspect-ratio: 1/1;
         object-fit: cover;
         overflow: hidden;
