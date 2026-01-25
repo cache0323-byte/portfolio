@@ -129,7 +129,7 @@ myself
 .myself_img{
     width: 52vw;
     aspect-ratio: 195/130;
-    object-fit: cover;
+    object-fit: contain;
     outline: 1px solid var(--primary-black);
     outline-offset: 4px;
     margin: 0 auto;
@@ -203,6 +203,12 @@ myself/pc
         aspect-ratio: 561/374;
         flex-shrink: 0;
         margin-top: 94px;
+    }
+
+    .myself_img img{
+        width: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     .myself_nameEn{
@@ -495,6 +501,12 @@ interests
     overflow: hidden;
 }
 
+.interests_item{
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
 .interests_img{
     width: 30vw;
     aspect-ratio: 1/1;
@@ -502,6 +514,31 @@ interests
     overflow: hidden;
     flex-shrink: 0;
     flex-grow: 0;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.interests_overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: transform 0.3s ease;
+}
+
+.interests_text{
+    color: #fff;
+    line-height: 2;
+}
+
+.interests_item:hover .interests_overlay{
+    opacity: 1;
 }
 
 /*------------------------
