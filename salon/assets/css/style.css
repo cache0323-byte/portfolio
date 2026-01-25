@@ -57,11 +57,53 @@ body {
     overflow-x: hidden;
 }
 
+.nav_item a {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 4px;
+}
+
+.nav_item a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-brown);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav_item a:hover::after {
+    width: 100%; 
+}
+.footer_list a {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 4px;
+}
+
+.footer_list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-white);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.footer_list a:hover::after {
+    width: 100%; 
+}
+
 /* ふわっと出す */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    /* 少し下から出す */
     transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
@@ -111,7 +153,6 @@ body {
 }
 
 @media screen and (min-width:769px) {
-
     /* セクションの縦棒の設定 */
     .c-line--vertical {
         top: 184px;
