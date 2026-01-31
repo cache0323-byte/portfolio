@@ -15,6 +15,11 @@ export const Message: Story = {
     children: 'MESSAGE',
   },
 };
+export const CheckIt: Story = {
+  args: {
+    children: 'CHECK IT',
+  },
+};
 
 export const Products: Story = {
   args: {
