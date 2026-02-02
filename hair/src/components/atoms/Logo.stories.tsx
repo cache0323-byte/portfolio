@@ -1,7 +1,6 @@
 // src/components/atoms/Logo.stories.tsx
 import type { Meta, StoryObj } from '@storybook/react';
 import { Logo } from './Logo';
-import { Children } from 'react';
 
 const meta: Meta<typeof Logo> = {
   component: Logo,
@@ -11,8 +10,7 @@ const meta: Meta<typeof Logo> = {
 export default meta;
 type Story = StoryObj<typeof Logo>;
 
-export const Default: Story = {
-  args:{
-    children: '翠 Sui',
-  },
-};
+export const Default: Story = {};
+// args:{
+//   children: '翠 Sui',
+// },

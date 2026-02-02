@@ -17,6 +17,8 @@
   --color-primary-brown: #7e2c2c;
   --font-family-: 'Noto Serif JP', serif;
 } */
+ /*  themeにフォントをつなげて読み込むとフォントがうまく読み込んでくれない。 
+ 後日時間があれば修正*/
 
 body {
   background: var(--color--primary-white);
