@@ -8,6 +8,8 @@
   --primary-brown: #7e2c2c;
   --font-noto:'Noto Serif JP',serif;
   --font-zen:'Zen Old Mincho', serif;
+  --size-title:30px;
+  --size-body:18px;
 }
 
 /* @theme {

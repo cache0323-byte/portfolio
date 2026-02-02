@@ -1,17 +1,19 @@
-import { Logo } from "../atoms/Logo";
+import {Logo} from '../atoms/Logo'
+import { NavList } from '../atoms/NavList'
+
+const navItems = [
+  { label: 'MESSAGE', href: '/message' },
+  { label: 'CHECK IT', href: '/check' },
+  { label: 'PRODUCT', href: '/product' },
+]
 
 export const Header = () => {
   return (
-    <header className="w-full h-[82px] bg-primary-pink flex items-center justify-between px-36">
-      <Logo />
-      <nav>
-        <ul className="flex gap-12">
-          <li><NavLink href="#about">About</NavLink></li>
-          <li><NavLink href="#works">Works</NavLink></li>
-          <li><NavLink href="#contact">Contact</NavLink></li>
-        </ul>
-      </nav>
+    <header className="fixed top-10 z-50 w-full bg--primary-pink">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        <Logo />
+        <NavList items={navItems} />
+      </div>
     </header>
-  );
-};
-
+  )
+}

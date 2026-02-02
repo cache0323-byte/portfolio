@@ -11,6 +11,3 @@ export default meta;
 type Story = StoryObj<typeof Logo>;
 
 export const Default: Story = {};
-// args:{
-//   children: '翠 Sui',
-// },
