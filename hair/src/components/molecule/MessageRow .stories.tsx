@@ -20,7 +20,7 @@ type Story = StoryObj<typeof MessageRow>
 // 通常パターン（画像が左、文字が右）
 export const Default: Story = {
   args: {
-    title: '髪と心に、優しさのリセットを',
+    title: (<>髪と心に、<br />優しさのリセットを</>),
     text: '私たちの製品は、植物の力にこだわり、不要な化学成分は一切排除しました。使うたびに広がる、ほのかなアロマの香りで、心まで解きほぐされるような心地よさを。',
     imgSrc: '/images/message01.jpg', 
     reverse: true,

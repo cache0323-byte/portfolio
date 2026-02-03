@@ -1,5 +1,5 @@
 type Props = {
-  title: string;
+  title: React.ReactNode;
   text: string;
   imgSrc: string;
   reverse?: boolean; // 画像を左にするか右にするかのフラグ
@@ -17,7 +17,7 @@ export const MessageRow = ({ title, text, imgSrc, reverse = false }: Props) => {
         <img 
           src={imgSrc} 
           alt="" 
-          className="w-full h-[427px] object-fit object-center shadow-sm" 
+          className="w-full h-[427px] object-none object-right shadow-sm" 
         />
       </div>
 
