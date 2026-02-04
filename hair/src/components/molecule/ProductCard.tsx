@@ -14,7 +14,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   category 
 }) => {
   return (
-    <article className="max-w-[265px] bg-white overflow-hidden">
+    <article className="max-w-[265px] bg-white overflow-hidden flex flex-col items-center">
       {/* 画像エリア: アスペクト比を固定すると並べた時に綺麗です */}
       <div className="aspect-[4/3] w-full overflow-hidden">
         <img 
@@ -36,7 +36,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {title}
         </h3>
         
-        <p className="mb-4 text-sm leading-relaxed text-[var(--primary-black)]">
+        <p className="mb-4 text-sm leading-relaxed text-[var(--primary-black)]  text-center">
           {description}
         </p>
       </div>
