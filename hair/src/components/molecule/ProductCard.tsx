@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface ProductCardProps {
   imageUrl: string;
-  title: string;
+  title: React.ReactNode;
   description: React.ReactNode;
   category?: string;
 }

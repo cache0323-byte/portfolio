@@ -1,3 +1,5 @@
+import { TextBox } from '../molecule/TextBox';
+
 type Props = {
   title: React.ReactNode;
   text: string;
@@ -17,7 +19,7 @@ export const MessageRow = ({ title, text, imgSrc, reverse = false }: Props) => {
         <img 
           src={imgSrc} 
           alt="" 
-          className="w-full h-[427px] object-none object-right shadow-sm" 
+          className="w-full h-[427px] object-cover object-right shadow-sm" 
         />
       </div>
 
@@ -32,30 +34,12 @@ export const MessageRow = ({ title, text, imgSrc, reverse = false }: Props) => {
           style={{ 
             backgroundColor: 'color-mix(in srgb, var(--primary-brown), transparent 92%)',
             backdropFilter: 'blur(8px)'
-          }}
-        >
-          <h3 
-            className="mb-4 leading-relaxed font-bold"
-            style={{ 
-              fontSize: 'var(--size-title)', 
-              fontFamily: 'var(--font-zen)',
-              color: 'var(--primary-black)'
-            }}
-          >
-            {title}
-          </h3>
-          <p 
-            className="leading-loose"
-            style={{ 
-              fontSize: '18px', 
-              fontFamily: 'var(--font-noto)',
-              color: 'var(--primary-black)'
-            }}
-          >
-            {text}
-          </p>
+          }}>
+            <TextBox title={title} body={text} align="left" />
+
+          </div>
+    
         </div>
-      </div>
     </div>
   );
 };
