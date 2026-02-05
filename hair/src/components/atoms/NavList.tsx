@@ -14,8 +14,12 @@ export const NavList = ({ items }: Props) => {
         <li key={item.href}>
           <a
             href={item.href}
-            className="text-noto  tracking-widest hover:opacity-70"
-          >
+            className="text-noto  
+                       tracking-widest
+                       hover:opacity-70
+                       font-semibold
+                       text-[var(--primary-brown)
+                       font-[var(--font-noto-serif-jp)]">
             {item.label}
           </a>
         </li>

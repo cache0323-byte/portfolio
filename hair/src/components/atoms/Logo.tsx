@@ -26,7 +26,8 @@ export const Logo = () => {
         items-center 
         text-[var(--primary-brown)] 
         text-[40px] 
-        font-zen
+        font-bold
+        font-[var(--font-zen-old-mincho)]
     ">
       Sui 翠
     </h1>

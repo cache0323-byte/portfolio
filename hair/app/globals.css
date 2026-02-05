@@ -1,13 +1,13 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Noto+Serif+JP:wght@200..900&family=Zen+Old+Mincho:wght@600;700&display=swap');
 :root {
   --primary-black: #3a3a3a;
   --primary-white: #fdfdfd;
   --primary-pink: #ec96a3;
   --primary-brown: #7e2c2c;
-  --font-noto:'Noto Serif JP',serif;
-  --font-zen:'Zen Old Mincho', serif;
+  --font-noto-serif-jp:'Noto Serif JP',serif;
+  --font-noto-sans:'Noto Sans',sans-serif;
+  --font-zen-old-mincho:'Zen Old Mincho', serif;
   --size-title:30px;
   --size-subtitle:20px;
   --size-body:18px;
@@ -26,5 +26,5 @@
 body {
   background: var(--color--primary-white);
   color: var(--color--primary-black);
-  font-family:var(--font-noto);
+  font-family:var(--font-noto-serif-jp);
 }

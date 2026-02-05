@@ -17,7 +17,8 @@ export const Button = ({ label, onClick }: Props) => {
         border-primary-brown 
         text-[var(--primary-brown)] 
         text-[24px] 
-        font-noto
+        font-semibold
+        font-[var(--font-noto-serif-jp)]
         hover:bg-[var(--primary-brown)] 
         hover:text-[var(--primary-white)] 
         transition-colors 
