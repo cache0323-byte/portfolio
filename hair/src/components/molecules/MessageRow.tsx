@@ -1,4 +1,4 @@
-import { TextBox } from '../molecule/TextBox';
+import { TextBox } from './TextBox';
 
 type Props = {
   title: React.ReactNode;

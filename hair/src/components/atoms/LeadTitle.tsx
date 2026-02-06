@@ -1,11 +1,14 @@
 type Props = {
-    children: string;
+    children: React.ReactNode;
 };
 
 export const LeadTitle = ({ children }: Props) => {
     return (
         <p
-            style={{ fontFamily: 'var(--font-noto-serif-jp)', color: 'var(--primary-black)' }}
+            style={{ 
+                fontFamily: 'var(--font-noto-serif-jp)',
+                color: 'var(--primary-black)'
+             }}
             className="text-[30px] tracking-[0.2em] font-bold"
         >
             {children}

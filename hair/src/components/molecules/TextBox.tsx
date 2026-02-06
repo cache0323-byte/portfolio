@@ -10,12 +10,12 @@ type Props = {
 
 export const TextBox = ({ title, body, align = 'left' }: Props) => (
   <div className={align === 'center' ? 'text-center' : 'text-left'}>
-    {title && <LeadTitle children={title} />}
+    {title && <LeadTitle>{title}</LeadTitle>  }
     
     {/* bodyがある時だけ、余白と一緒に表示する */}
     {body && (
       <div className={title ? "mt-4" : ""}> 
-        <Description children={body} />
+        <Description> {body} </Description>
       </div>
     )}
   </div>

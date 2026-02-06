@@ -34,7 +34,7 @@ export const OnlyTitle: Story = {
 export const CenterAligned: Story = {
   args: {
     title: 'あなたの髪悩みを解決する',
-    body: '4つの植物ブレンドが、髪の美しさを取り戻すお手伝いをします。',
-    align: 'center',
+    body: "当ブランドは、髪の質感、ダメージレベル、そして頭皮環境に着目し、植物の力が凝縮された４つのオイル・エッセンスにたどり着きました。あなたの診断結果に基づき、髪本来の美しさを取り戻す最適な１本をご紹介します。",
+    align: 'left',
   },
 };

@@ -1,9 +1,12 @@
+import { Children } from "react";
+
 type Props = {
-  label: string;
+  label?: string;
+  children?:React.ReactNode;
   onClick?: () => void;
 };
 
-export const Button = ({ label, onClick }: Props) => {
+export const Button = ({ label, children, onClick }: Props) => {
   return (
     <button
       onClick={onClick}
@@ -25,7 +28,7 @@ export const Button = ({ label, onClick }: Props) => {
         duration-300 
         tracking-widest"
     >
-      {label}
+      {label || children}
     </button>
   );
 };
