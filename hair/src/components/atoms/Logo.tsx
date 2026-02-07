@@ -16,20 +16,23 @@
 // };
 
 type Props = {
-  children: string;
+  vertical?: boolean;
 };
 
-export const Logo = () => {
+export const Logo = ({vertical =false}) => {
   return (
     <h1
-      className="
+      className={`
+        flex
         items-center 
         text-[var(--primary-brown)] 
         text-[40px] 
         font-bold
         font-[var(--font-zen-old-mincho)]
-    ">
-      Sui 翠
+        ${vertical? 'flex-col text-[32px] leading-tight':'flex-row gap-2 text-[40px]'}
+    `}>
+      <span>Sui</span>
+      <span>翠</span>
     </h1>
   );
 };
