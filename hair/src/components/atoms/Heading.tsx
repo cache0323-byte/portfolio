@@ -7,12 +7,11 @@ export const Heading = ({ children }: Props) => {
   return (
     <h2 className="
     text-center
-    font-noto-sans-jp
     text-[36px]
     font-bold
     tracking-[0.2em]
-    text-[var(--primary-brown)]
-    ">
+    text-[var(--primary-brown)] 
+">
       {children}
     </h2>
   );

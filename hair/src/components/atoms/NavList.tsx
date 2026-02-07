@@ -9,16 +9,15 @@ type Props = {
 
 export const NavList = ({ items }: Props) => {
   return (
-    <ul className="flex gap-6">
+    <ul className="flex gap-10">
       {items.map((item) => (
         <li key={item.href}>
           <a
             href={item.href}
-            className="text-noto  
-                       tracking-widest
+            className="tracking-widest
                        hover:opacity-70
-                       font-semibold
-                       text-[var(--primary-brown)
+                       font-bold
+                       text-[var(--primary-brown)]
                        font-[var(--font-noto-serif-jp)]">
             {item.label}
           </a>

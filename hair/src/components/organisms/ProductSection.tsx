@@ -4,7 +4,7 @@ import { ProductCard } from '../molecules/ProductCard';
 
 export const ProductSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section id="products" className="py-20 bg-white">
       <div>
         <TextBox
           title="PRODUCTS"
@@ -12,7 +12,7 @@ export const ProductSection = () => {
           />
       </div>
       <div className="max-w-6xl mx-auto px-4">
-        <div className="mb-12">
+        <div className="mb-12 text-[var(--primary-black)]">
           <TextBox 
             title="あなたの髪悩みを解決する、4つの植物ブレンド" 
             body="当ブランドは、髪の質感、ダメージレベル、そして頭皮環境に着目し、植物の力が凝縮された４つのオイル・エッセンスにたどり着きました。あなたの診断結果に基づき、髪本来の美しさを取り戻す最適な１本をご紹介します。" 

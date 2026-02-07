@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const CheckItSection = () => {
   return (
-    <section className="py-24 bg-cover bg-center"
+    <section id="checkIt" className="py-24 bg-cover bg-center"
     style={{
         backgroundImage:"url('/images/check01.jpg')"
     }}> 

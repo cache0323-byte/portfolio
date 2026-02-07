@@ -3,7 +3,7 @@ import { MessageRow } from '../molecules/MessageRow';
 
 export const MessageSection = () => {
   return (
-    <section className="py-24 bg-[var(--primary-white)]">
+    <section id="message" className="py-24 bg-[var(--primary-white)]">
       <div className="max-w-4xl mx-auto px-6">
         <TextBox 
           title="MESSAGE" 

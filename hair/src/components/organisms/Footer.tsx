@@ -3,14 +3,14 @@ import { NavList } from'../atoms/NavList'
 
 const footerNavItems =[
     { label:'会社概要', href:'#'},
-    { label:'会社概要', href:'#'},
-    { label:'会社概要', href:'#'},
-    { label:'会社概要', href:'#'},
+    { label:'個人情報の取扱いについて', href:'#'},
+    { label:'特定商取引に基づく表記', href:'#'},
+    { label:'お問い合わせ', href:'#'},
 ]
 
 export const Footer = () => {
     return(
-        <footer className="flex flex-col items-center bg[var-(--primary-pink)/5] py-16">
+        <footer className="flex flex-col items-center bg-[var(--primary-pink)]/5 py-16">
         <div className="mb-10">
             <Logo vertical />
         </div>

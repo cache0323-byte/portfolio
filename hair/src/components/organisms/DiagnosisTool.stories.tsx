@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { DiagnosisTool } from '../organisms/DiagonosisTool';
+import { DiagnosisTool } from './DiagnosisTool';
 
 const meta: Meta<typeof DiagnosisTool> = {
   title: 'Organisms/DiagnosisTool',
