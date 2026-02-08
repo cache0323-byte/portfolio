@@ -4,42 +4,67 @@ type Props = {
   title: React.ReactNode;
   text: string;
   imgSrc: string;
-  reverse?: boolean; // 画像を左にするか右にするかのフラグ
+  reverse?: boolean; // 画像を左にするか右にするか
 };
 
 export const MessageRow = ({ title, text, imgSrc, reverse = false }: Props) => {
   return (
     <div 
-      className={`relative flex items-start justify-center w-full ${reverse ? 'flex-row-reverse' : 'flex-row'}`}
+      className={`
+        relative 
+        flex items-start justify-center
+        w-full 
+        ${reverse ? 'flex-row-reverse' : 'flex-row'}
+        `}
       style={{ minHeight: '587px' }} // 写真427px + ズレ160px 分の最低高さを確保
     >
       
       {/* 写真エリア: 640px / 427px */}
-      <div className="w-[52%] max-w-[640px] shrink-0">
+      <div 
+        className="
+          w-[52%] max-w-[640px] 
+          shrink-0
+          ">
         <img 
           src={imgSrc} 
           alt="" 
-          className="w-full h-[427px] object-cover object-right shadow-sm" 
-        />
+          className="
+            w-full 
+            h-[427px] 
+            object-cover object-right 
+            shadow-sm
+          " />
       </div>
 
       {/* テキストエリア: 600px / 320px */}
       {/* 40px被らせるために margin を調整 */}
       <div 
-        className={`w-[48%] max-w-[600px] shrink-0 relative ${reverse ? '-mr-[40px]' : '-ml-[40px]'}`}
-        style={{ top: '160px' }} // 160px下にズラす
+        className={`
+          w-[48%] max-w-[600px] 
+          shrink-0 
+          relative 
+          ${reverse ? '-mr-[40px]' : '-ml-[40px]'}
+          `}
+        style={{ top: '160px' }} // 160px下にずらす
       >
-        <div 
-          className="p-10 h-[320px] flex flex-col justify-center shadow-sm"
-          style={{ 
-            backgroundColor: 'color-mix(in srgb, var(--primary-brown), transparent 92%)',
-            backdropFilter: 'blur(8px)'
-          }}>
-            <TextBox title={title} body={text} align="left" />
-
-          </div>
-    
-        </div>
+      <div 
+        className="
+          p-12 
+          h-[320px] 
+          flex flex-col justify-center 
+          shadow-sm"
+        style={{ 
+          backgroundColor: 'color-mix(in srgb, var(--primary-brown), transparent 92%)',
+          backdropFilter: 'blur(8px)'
+        }}>
+          <TextBox 
+            title={title} 
+            text={text} 
+            align="left" 
+            bodyGap='mt-8'
+            />
+      </div>
     </div>
+  </div>
   );
 };

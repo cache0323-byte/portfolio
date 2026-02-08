@@ -1,17 +1,19 @@
 // src/components/atoms/Heading.tsx
 type Props = {
-  children: string;
+  children: React.ReactNode;
+  className?: string;
 };
 
-export const Heading = ({ children }: Props) => {
+export const Heading = ({ children, className ="" }: Props) => {
   return (
-    <h2 className="
+    <h2 className={`
     text-center
-    text-[36px]
+    text-4xl
     font-bold
     tracking-[0.2em]
     text-[var(--primary-brown)] 
-">
+    ${className}
+  `}>
       {children}
     </h2>
   );

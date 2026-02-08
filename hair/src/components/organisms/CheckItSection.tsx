@@ -4,23 +4,30 @@ import Link from 'next/link';
 
 export const CheckItSection = () => {
   return (
-    <section id="checkIt" className="py-24 bg-cover bg-center"
-    style={{
+    <section 
+      id="checkIt"
+      className=" w-full aspect-[1360/907] 
+                  flex items-center justify-center 
+                  bg-cover bg-center relative"
+      style={{
         backgroundImage:"url('/images/check01.jpg')"
-    }}> 
-      <div className="max-w-4xl mx-auto px-6 text-center items-center">
-        {/* 見出し */}
+      }}> 
+      <div 
+        className="max-w-4xl mx-auto px-6 text-center">
         <TextBox 
-          title="CHECK IT" 
-          body="今のあなたに最適なケアを。" 
-          align="center" 
+          label="CHECK IT" 
+          title={
+            <>
+            しっとり？さらさら？<br />
+            あなたの悩みに効く<br />
+            自然の答えを診断します。
+            </>
+          }
+          align="center"
+          titleGap='mt-14'
+          bodyGap='mt-8'
         />
-        
-        {/* 説明文 */}
-        <p className="mt-6 text-[var(--primary-black)] opacity-80 leading-relaxed font-noto">
-          髪の悩みや理想の仕上がりは、人それぞれ。<br />
-          4つの植物ブレンドから、あなたの髪を輝かせる<br className="sm:hidden" />「運命の一本」を診断します。
-        </p>
+
 
         {/* 診断開始ボタン */}
         <div className="mt-12 flex justify-center">

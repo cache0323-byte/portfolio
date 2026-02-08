@@ -2,15 +2,30 @@ import {Logo} from '../atoms/Logo'
 import { NavList } from '../atoms/NavList'
 
 const navItems = [
-  { label: 'MESSAGE', href: '#message' },
-  { label: 'CHECK IT', href: '#checkIt' },
-  { label: 'PRODUCT', href: '#products' },
+  { label: 'MESSAGE', href: '/#message' },
+  { label: 'CHECK IT', href: '/#checkIt' },
+  { label: 'PRODUCT', href: '/#products' },
 ]
 
 export const Header = () => {
   return (
-    <header className="fixed z-50 w-full bg-[var(--primary-pink)]/5">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+    <header 
+      className="
+        fixed 
+        z-50 
+        w-full 
+        bg-[var(--primary-pink)]/10 
+        backdrop-blur-md
+      ">
+      <div 
+        className="
+          mx-auto 
+          h-16 
+          max-w-7xl 
+          flex 
+          items-center justify-between
+          px-6
+        ">
         <Logo />
         <NavList items={navItems} />
       </div>

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Noto+Serif+JP:wght@200..900&family=Zen+Old+Mincho:wght@600;700&display=swap'); */
 
 :root {
   --primary-black: #3a3a3a;
@@ -10,14 +9,10 @@
   --font-noto-serif-jp: 'Noto Serif JP', serif;
   --font-noto-sans: 'Noto Sans', sans-serif;
   --font-zen-old-mincho: 'Zen Old Mincho', serif;
-  
-  --size-title: 30px;
-  --size-subtitle: 20px;
-  --size-body: 18px;
+
 }
 
 body {
-  /* 変数名を定義と一致させる */
   background: var(--primary-white);
   color: var(--primary-black);
   font-family: var(--font-noto-serif-jp);

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
@@ -46,8 +46,16 @@ const questions = [
   },
 ];
 export const DiagnosisTool = () => {
-  const [step, setStep] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+  const [step, setStep] = useState(1);
   const [selectedTargets, setSelectedTargets] = useState<number[]>([]);
+  
+  useEffect(()=>{
+    setIsClient(true);
+  },[]);
+  if (!isClient){
+    return <div className="min-h-[500px]" />;
+  }
 
   const handleAnswer = (target: number) => {
     setSelectedTargets([...selectedTargets, target]);
@@ -57,98 +65,197 @@ export const DiagnosisTool = () => {
   const getResult = () => {
     const counts: { [key: number]: number } = {};
     selectedTargets.forEach(id => { counts[id] = (counts[id] || 0) + 1; });
-    const resultId = Object.keys(counts).reduce((a, b) => 
+    const resultId = Object.keys(counts).reduce((a, b) =>
       counts[Number(a)] > counts[Number(b)] ? Number(a) : Number(b)
-    , selectedTargets[selectedTargets.length - 1]);
+      , selectedTargets[selectedTargets.length - 1]);
     return DiagnosisResults[Number(resultId)];
   };
 
   return (
     <div className="max-w-2xl mx-auto min-h-[500px] relative">
       <AnimatePresence mode="wait">
-        
-        {/* --- 1. 開始画面 --- */}
-        {step === 0 && (
-          <motion.div
-            key="start"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="p-12 bg-white shadow-sm rounded-2xl text-center"
-          >
-            <h2 className="text-xl mb-8 leading-relaxed font-bold">
-              30秒でわかる。<br />あなたの髪に、真実の潤いを。
-            </h2>
-            <motion.button 
-              whileHover={{ scale: 1.05 }} // ぷにっ
-              whileTap={{ scale: 0.95 }}   // ギュッ
-              onClick={() => setStep(1)}
-              className="bg-[#7e2c2c] text-white px-12 py-4 rounded-full hover:opacity-90 transition-opacity"
-            >
-              診断をはじめる
-            </motion.button>
-          </motion.div>
-        )}
-
-        {/* --- 2. 質問画面 --- */}
+        {/* 質問画面 */}
         {step > 0 && step <= questions.length && (
           <motion.div
-            key={`question-id-${questions[step-1].id}`}
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="p-10 bg-white shadow-sm rounded-2xl"
-          >
-            <div className="w-full bg-gray-100 h-1 mb-8">
-              <motion.div 
-                className="bg-[#7e2c2c] h-1" 
-                initial={{ width: 0 }}
-                animate={{ width: `${(step / questions.length) * 100}%` }}
-                transition={{ duration: 0.5 }}
-              />
+            key={`question-${step}`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="py-10"
+            >
+            {/* プログレスバー */}
+            <div 
+              className="
+                w-30 
+                mx-auto 
+                mb-16 
+                overflow-hidden
+              ">
+              <p 
+                className="
+                  text-sm 
+                  tracking-[0.3em] 
+                  text-gray-400 
+                  mb-2 
+                  text-center 
+                  uppercase
+                ">
+                  Step {step} / 4
+              </p>
+              <div 
+                className="
+                  w-full 
+                  bg-gray-200 
+                  h-[1px] 
+                  relative
+                ">
+                <motion.div
+                  className="
+                    bg-[var(--primary-brown)] 
+                    h-[1px] 
+                    absolute 
+                    top-0 
+                    left-0
+                    "
+                  initial={{ width: 0 }}
+                  animate={{ width: `${(step / questions.length) * 100}%` }}
+                />
+              </div>
             </div>
-            <p className="text-sm font-bold text-[#ec96a3]">QUESTION {step}/4</p>
-            <h2 className="text-xl mt-4 font-bold">{questions[step - 1].question}</h2>
-            <div className="mt-8 space-y-4">
-              {questions[step - 1].options.map((opt, i) => (
-                <motion.button 
-                  key={opt.text}
-                  whileHover={{ x: 10, backgroundColor: "#F9F4F0" }} // 少し右にスライド
-                  onClick={() => handleAnswer(opt.target)} 
-                  className="w-full p-5 border border-gray-100 rounded-xl text-left transition-all flex justify-between items-center group"
-                >
+
+            <h2 
+              className="
+                font-[var(--font-zen-old-mincho)] 
+                text-xl 
+                text-center 
+                mb-12 
+                tracking-wider">
+              {questions[step - 1].question}
+            </h2>
+
+            <div 
+              className="
+                grid grid-cols-1 
+                gap-4
+                ">
+               {questions[step - 1].options.map((opt,i) => (
+                <button
+                  key={i}
+                  onClick={() => handleAnswer(opt.target)}
+                  className="
+                    w-full 
+                    p-6 
+                    bg-white 
+                    hover:bg-[#FDFBF9] 
+                    border border-transparent 
+                    hover:border-[var(--primary-pink)]/20 
+                    transition-all 
+                    rounded-sm 
+                    text-center 
+                    text-xl 
+                    tracking-widest 
+                    text-[var(--primary-brown)] 
+                    shadow-sm"
+                  >
                   {opt.text}
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                </motion.button>
+                </button>
               ))}
             </div>
           </motion.div>
         )}
 
-        {/* --- 3. 結果画面 --- */}
+        {/* 結果画面  */}
         {step > questions.length && (
           <motion.div
             key="result"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", damping: 12 }}
-            className="p-12 bg-white shadow-sm rounded-2xl text-center"
-          >
-            <p className="text-[#ec96a3] font-bold mb-2">YOUR BEST MATCH</p>
-            <h2 className="text-2xl font-bold mb-6">{getResult().title}</h2>
-            <div className="bg-[#F9F4F0] p-8 rounded-lg mb-8">
-              <div className="w-48 h-48 mx-auto bg-gray-200 mb-6 rounded-lg overflow-hidden">
-                 <img src={getResult().imageUrl} alt={getResult().title} className="w-full h-full object-cover" />
+            className="
+              p-12 
+              bg-white 
+              shadow-sm 
+              rounded-sm 
+              text-center"
+            >
+            <p 
+              className="
+                font-bold 
+                mb-2
+                ">
+                YOUR BEST MATCH
+            </p>
+            <h2 
+              className="
+                text-2xl 
+                font-bold 
+                mb-6
+              ">
+                {getResult().title}
+            </h2>
+            <div 
+              className="
+                bg-[#F9F4F0] 
+                p-8 
+                rounded-lg 
+                mb-8
+              ">
+              <div 
+                className="
+                  w-48 
+                  h-48 
+                  mx-auto 
+                  bg-gray-200 
+                  mb-6 
+                  rounded-lg 
+                  overflow-hidden
+                ">
+                <img src={getResult().imageUrl} 
+                     alt={getResult().title} 
+                     className="
+                      w-full 
+                      h-full 
+                      object-cover"
+                />
               </div>
-              <p className="text-gray-700 leading-relaxed font-medium">{getResult().description}</p>
+              <p 
+                className="
+                  text-gray-700 
+                  leading-relaxed 
+                  font-medium">
+                    {getResult().description}
+              </p>
             </div>
-            <div className="flex flex-col gap-4 items-center">
-              <Link href="/#products" className="w-full max-w-xs bg-[#7e2c2c] text-white py-3 rounded-full font-bold text-center">
-                Topページへ戻る
+            <div 
+              className="
+                flex flex-col 
+                gap-4 
+                items-center
+                ">
+              <Link 
+                href="/#products"
+                className="
+                  w-full max-w-xs
+                  bg-[var(--primary-brown)] 
+                  text-white 
+                  py-5 
+                  rounded-sm
+                  font-bold
+                  over:bg-opacity-90 
+                  transition-all 
+                  duration-300
+                  shadow-[0_10px_30px_rgba(126,44,44,0.15)]
+                  flex items-center justify-center
+                ">
+                商品一覧へ戻る
               </Link>
-              <button onClick={() => { setStep(0); setSelectedTargets([]); }} className="text-sm underline text-gray-400">
+              <button 
+                onClick={() => { setStep(1); setSelectedTargets([]); }} 
+                className="
+                  text-base 
+                  underline 
+                  text-gray-600
+                ">
                 もう一度診断する
               </button>
             </div>
