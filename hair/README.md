@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 翠 -Sui- | ヘアケア診断・プロダクトサイト
 
-## Getting Started
+「自分に合う1本が見つかる」をテーマに、植物由来のヘアケアブランドの世界観をWeb上で表現したプロダクトサイトです。高級感のあるビジュアルと、ユーザーの悩みに寄り添うインタラクティブな診断機能を実装しています。
 
-First, run the development server:
+## 主な機能
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **パーソナライズ診断機能**: ユーザーの回答に基づき、4つの製品から最適な1本を提案するロジックを実装。
+- **レスポンシブデザイン**: PC/スマートフォン両方でブランドの世界観を損なわないレイアウト設計。
+- **StorybookによるUI管理**: 各コンポーネントの独立性を担保し、一貫したデザインシステムを構築。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 使用技術
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| カテゴリ | 技術スタック |
+| :--- | :--- |
+| **Frontend** | React, Next.js (App Router), TypeScript |
+| **Design** | Figma (独自デザイン) |
+| **Styling** | Tailwind CSS |
+| **UI Development** | Storybook |
+| **Deployment** | Vercel (予定) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 技術的な注力ポイント
 
-## Learn More
+### 1. Figmaを用いた独自デザインと実装
 
-To learn more about Next.js, take a look at the following resources:
+本プロジェクトは、Figmaを用いたUIデザインからフロントエンドの実装までを一貫して一人で担当しました。ブランドコンセプトである「翠」のイメージを損なわないよう、デザインデータの数値（余白、カラー、タイポグラフィ）を正確にコードへ反映させる「デザインの再現性」に注力しました。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. 診断ロジックの実装
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+単なる静的な紹介サイトではなく、ユーザー体験（UX）を重視し、Reactのステート管理を用いた診断機能を独自に実装しました。
 
-## Deploy on Vercel
+### 3. Storybookを活用したコンポーネント駆動開発
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ボタン、カード、診断ツールなどの各パーツをStorybook上で独立して開発。Atomic Designの考え方を取り入れ、再利用性とメンテナンス性の高いコード作成を意識しました。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 課題と解決策
+
+### ハイドレーションエラー等のデバッグ対応
+
+開発中、サーバーサイドレンダリング（SSR）とクライアントサイドの不整合（ハイドレーションエラー）や、Hooksの呼び出し順序によるランタイムエラーに直面しました。
+
+- **解決**: ブラウザとサーバーのレンダリング差異を特定するため、`useEffect` を用いたマウント判定の導入や、Hooksの記述ルールの再徹底を行いました。これらのエラー解決を通じて、Next.jsのレンダリングサイクルやReactのライフサイクルへの理解を深めることができました。
+
+### Tailwind CSSへの初挑戦と学習効率の追求
+
+今回、モダンなスタイリング手法としてTailwind CSSを初めて採用しました。
+
+- **課題**: 膨大なクラス名の把握に時間を要し、初期段階で開発スピードが課題となりました。
+- **解決**: 公式ドキュメントの読み込みに時間をかけすぎず、チートシートを徹底活用することで、最短距離で実装方法を習得。現場で求められる「調べながら形にする」スピード感を重視して完遂しました。
+
+### スタイリング設計の柔軟な変更
+
+当初はTailwind v4の `@theme` による変数管理を検討していましたが、環境構築時の読み込みトラブルに直面しました。
+
+- **判断**: デプロイ期限と品質のバランスを考慮し、即座に `:root` によるCSS変数定義に切り替える判断をしました。特定の手法に固執せず、プロジェクトの目的（デザインの正確な再現）を達成するための現実的な代替案を選択しました。
