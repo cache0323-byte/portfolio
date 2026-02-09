@@ -130,6 +130,7 @@ myself
     width: 52vw;
     aspect-ratio: 195/130;
     object-fit: contain;
+    object-position:center ;
     outline: 1px solid var(--primary-black);
     outline-offset: 4px;
     margin: 0 auto;
@@ -199,6 +200,7 @@ myself/pc
     }
 
     .myself_img{
+        /* width: 20vw; */
         width: 41.25vw;
         aspect-ratio: 561/374;
         flex-shrink: 0;
