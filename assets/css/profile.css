@@ -509,6 +509,10 @@ interests
     cursor: pointer;
 }
 
+.interests_text{
+    align-items: center;
+}
+
 .interests_img{
     width: 30vw;
     aspect-ratio: 1/1;

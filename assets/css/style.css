@@ -44,6 +44,26 @@ fv
     opacity: 0;
 }
 
+.fv_main {
+    /* 3Dアニメーションのための奥行きを設定 */
+    perspective: 1000px; 
+    overflow: hidden; /* 回る文字がはみ出さないように */
+    display: flex; /* 文字を横並びにする */
+    justify-content: center; /* 中央寄せ */
+    flex-wrap: wrap; /* 折り返しを許可 */
+}
+
+/* JavaScriptで分割された文字（span）へのスタイル */
+.fv_main .char {
+    display: inline-block;
+    /* 初期状態：90度回転させて見えなくする */
+    transform-origin: center center -20px; /* 回転の軸を少し奥に設定 */
+    transform: rotateX(-90deg); 
+    opacity: 0; /* 念のため透明に */
+    backface-visibility: hidden; /* 裏面は見せない */
+}
+
+
 .fv_container{
     margin: 46px 20.13% 0 ;
     display: flex;
@@ -270,6 +290,54 @@ works
     color: #fff;
 }
 
+.works_link{
+    padding: 0 13.3%;
+    margin-top: 80px;
+}
+
+.works_name_link{
+    font-family: 'DM Serif Display';
+    font-size: clamp(2.4rem, 6.4vw, 4.8rem);
+    line-height: 1;
+}
+
+.works_link_text{
+    margin-top: 26px;
+}
+
+.works_btnWrap{
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    height: 40px;
+    color: var(--primary-beige); 
+    background-color: var(--primary-green);
+    text-decoration: none;
+    cursor: pointer;
+    /* 2. 内側の線（border） */
+    border: 1px solid var(--primary-green); 
+    /* 3. 外側の線（outline）*/
+    outline: 1px solid var(--primary-green); 
+    outline-offset: 4px;
+    transition: all 0.5s ease; 
+    margin-top: 44px;
+}
+
+.works_btnWrap:hover {
+    background-color: var(--primary-beige); 
+    color: var(--primary-green); 
+    border-color: var(--primary-green);
+    outline-color: var(--primary-green);
+}
+
+.works_btn{
+    font-family: 'DM Serif Display';
+    font-size: clamp(1.6rem, 4.2vw, 2.4rem);
+    line-height: 1;
+}
+
+
 /*------------------------
 works/pc
 ------------------------ */
@@ -315,9 +383,10 @@ works/pc
     .works_inner_main{
         width: 27.86vw;
     }
+
     .works_sub_wrap{
-    width: 30%;
-}
+        width: 30%;
+    }
 
     .works_job{
         font-size: clamp(1.2rem, 1.1vw, 1.6rem);
@@ -358,6 +427,24 @@ works/pc
 
     .works_name_sub{
         margin-top: 11px;
+    }
+
+    /* .works_linkWrap{
+
+    } */
+
+    .works_link{
+        padding: 0 16.2vw;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .works_name_link{
+        font-size: clamp(2.4rem, 3.5vw, 4.8rem);
+    }
+
+    .works_btn{
+        font-size: clamp(1.6rem, 1.76vw, 2.4rem);
     }
 }
 

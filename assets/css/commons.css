@@ -85,28 +85,45 @@ header
     background-color: var(--primary-black); 
     z-index: 1; 
 }
-
-.header::after {
-    content: "";
-    position: absolute; 
-    right: 5.8%;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background-color: var(--primary-black); 
-    z-index: 1; 
-}
-
 .header_nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav_list{
-    font-size: clamp(1.2rem,3.2vw,1.6rem);
+.nav_list {
+    font-size: clamp(1.2rem, 3.2vw, 1.6rem);
     font-weight: 700;
+    color: var(--primary-green);
+    text-decoration: none; 
+    position: relative;
+    padding-bottom: 4px;  
+    display: inline-block;
 }
+
+/* ホバーした時に出る線（初期状態は幅0） */
+.nav_list::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;              /* 最初は隠しておく */
+    height: 1.5px; 
+    background-color: var(--primary-green);
+    transition: width 0.5s ease; 
+}
+
+/* ホバーした時 */
+.nav_list:hover::after {
+    width: 100%;      
+}
+
+.nav_list:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+
 
 .header_logo{
     display: flex;
@@ -276,6 +293,9 @@ footer/pc
     .footer_nav_item{
         font-size:1.6rem
     }
+    .nav_arrow{
+        width: 22px;
+    }
 
     .mail{
         font-size: 3.2rem;
@@ -286,6 +306,24 @@ footer/pc
         margin: 0 ; 
         text-align: start; 
     }
+}
+
+/* ==================================
+Scroll Animation (Fade In)
+=================================== */
+
+/* 1. アニメーション前の状態（透明で、少し下に配置） */
+.js-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    will-change: opacity, transform; 
+}
+
+/* 2. 表示された時の状態（透明度1、元の位置へ） */
+.js-fade.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 

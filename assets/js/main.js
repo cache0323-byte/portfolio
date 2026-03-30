@@ -27,6 +27,65 @@
     })
 
 
+// Intersection Observer
+const observeFade = () => {
+    const targets = document.querySelectorAll('.js-fade');
+    
+    const options = {
+        root: null, // ビューポートを基準にする
+        rootMargin: '0px',
+        threshold: 0.2 // 15% 画面に入ったら実行
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    targets.forEach(target => observer.observe(target));
+};
+
+// DOMが読み込まれたら実行
+window.addEventListener('DOMContentLoaded', observeFade);
+
+const initFvMainAnimation = () => {
+    const fvMains = document.querySelectorAll('.fv_main');
+    if (fvMains.length === 0) return;
+
+    // 1. 全ての fv_main に対して文字分割処理
+    fvMains.forEach(main => {
+        const text = main.textContent.trim();
+        main.innerHTML = ''; 
+        
+        text.split('').forEach(char => {
+            const span = document.createElement('span');
+            span.className = 'char';
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            main.appendChild(span);
+        });
+    });
+
+    // 2. GSAPで全 .char を一斉に（かつ順番に）アニメーション
+    if (typeof gsap !== 'undefined') {
+        gsap.to('.fv_main .char', {
+            duration: 1.0,
+            rotateX: 0,
+            opacity: 1,
+            ease: "back.out(1.5)",
+            stagger: 0.03, // 文字数が多いので少し早めに設定
+            delay: 0.8     // ラインが出始めてから動くように調整
+        });
+    }
+};
+
+// DOM構築後に実行
+document.addEventListener('DOMContentLoaded', initFvMainAnimation);
+
+
 //モーダル
 // モーダル制御（書き換え案）
 document.addEventListener('DOMContentLoaded', () => {
